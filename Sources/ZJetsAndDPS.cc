@@ -301,17 +301,23 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
             if(WCharge>0) { 
                 table SF_Muon_IDTight_Rereco("EfficiencyTables2012/scale_factors_reco_id_iso_muplus_hogul_err.txt");
                 table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/scale_factors_trig_muplus_hogul_err.txt");
+                LeptID = SF_Muon_IDTight_Rereco;
+                LeptIso = SF_Muon_ISOTight_ReReco;
+                LeptTrig = SF_TrigIsoMu24eta2p1_ReReco;
             }
             else if(WCharge<0) { 
                 table SF_Muon_IDTight_Rereco("EfficiencyTables2012/scale_factors_reco_id_iso_muminus_hogul_err.txt");
                 table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/scale_factors_trig_muminus_hogul_err.txt");
+                LeptID = SF_Muon_IDTight_Rereco;
+                LeptIso = SF_Muon_ISOTight_ReReco;
+                LeptTrig = SF_TrigIsoMu24eta2p1_ReReco;
             }
             
             //table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/Efficiency_SF_ReReco2012_IsoMu24_eta2p1.txt");
             
-            LeptID = SF_Muon_IDTight_Rereco;
-            LeptIso = SF_Muon_ISOTight_ReReco;
-            LeptTrig = SF_TrigIsoMu24eta2p1_ReReco;
+            ////LeptID = SF_Muon_IDTight_Rereco;
+            ////LeptIso = SF_Muon_ISOTight_ReReco;
+            ////LeptTrig = SF_TrigIsoMu24eta2p1_ReReco;
         }
     }
     //==========================================================================================================//
@@ -4465,7 +4471,7 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
 
 
 
-ZJetsAndDPS::ZJetsAndDPS(string fileName_, float lumiScale_, float puScale_, bool useTriggerCorrection_, bool useEfficiencyCorrection_,  int systematics_, int direction_, float xsecfactor_, int RecJetPtMin_, int RecJetPtMax_, int ZPtCutMin_, int ZEtaCutMin_, int ZEtaCutMax_, int METcut_, int MTcut_, bool nEvents_10000_, int RecJetEtaMin_, int RecJetEtaMax_): 
+ZJetsAndDPS::ZJetsAndDPS(string fileName_, int WCharge_, float lumiScale_, float puScale_, bool useTriggerCorrection_, bool useEfficiencyCorrection_,  int systematics_, int direction_, float xsecfactor_, int RecJetPtMin_, int RecJetPtMax_, int ZPtCutMin_, int ZEtaCutMin_, int ZEtaCutMax_, int METcut_, int MTcut_, bool nEvents_10000_, int RecJetEtaMin_, int RecJetEtaMax_): 
     HistoSet(fileName_.substr(0, fileName_.find("_"))), nEvents_10000(nEvents_10000_), outputDirectory("/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/"),
     fileName(fileName_), WCharge(WCharge_), lumiScale(lumiScale_), puScale(puScale_), useTriggerCorrection(useTriggerCorrection_), useEfficiencyCorrection(useEfficiencyCorrection_), 
     systematics(systematics_), direction(direction_), xsecfactor(xsecfactor_), RecJetPtMin(RecJetPtMin_), RecJetPtMax(RecJetPtMax_), RecJetEtaMin(RecJetEtaMin_), RecJetEtaMax(RecJetEtaMax_), ZPtCutMin(ZPtCutMin_), ZEtaCutMin(ZEtaCutMin_), ZEtaCutMax(ZEtaCutMax_), METcut(METcut_), MTcut(MTcut_)
