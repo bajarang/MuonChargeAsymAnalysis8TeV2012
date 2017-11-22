@@ -3,7 +3,6 @@
 #define BARREDEPROGRESSION 0
 #define DEBUG 0
 #define PRINTEVENT 1
-#define whichW             1   // 0:both Ws, 1:plusW, -1:minusW
 
 #include <TH2.h>
 #include <TStyle.h>
@@ -297,10 +296,17 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
         }
         if (leptonFlavor == "SingleMuon")  {
             // Single Muon SF for 2012 data (Rereco on Jan2013)
-            table SF_Muon_IDTight_Rereco("EfficiencyTables2012/scale_factors_reco_id_iso_muplus_hogul.txt");
             //table SF_Muon_IDTight_Rereco("EfficiencyTables2012/Muon_IDTight_Efficiencies_ReReco2012_Eta_Pt.txt");
             table SF_Muon_ISOTight_ReReco("EfficiencyTables2012/Muon_ISOTight_forTight_Efficiencies_ReReco2012_Eta_Pt.txt");
-            table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/scale_factors_trig_muplus_hogul.txt");
+            if(WCharge>0) { 
+                table SF_Muon_IDTight_Rereco("EfficiencyTables2012/scale_factors_reco_id_iso_muplus_hogul_err.txt");
+                table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/scale_factors_trig_muplus_hogul_err.txt");
+            }
+            else if(WCharge<0) { 
+                table SF_Muon_IDTight_Rereco("EfficiencyTables2012/scale_factors_reco_id_iso_muminus_hogul_err.txt");
+                table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/scale_factors_trig_muminus_hogul_err.txt");
+            }
+            
             //table SF_TrigIsoMu24eta2p1_ReReco("EfficiencyTables2012/Efficiency_SF_ReReco2012_IsoMu24_eta2p1.txt");
             
             LeptID = SF_Muon_IDTight_Rereco;
@@ -834,19 +840,19 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
                     //-- store lepton in the collection
                     if (doZ && genLep.pt >= 20 && fabs(genLep.eta) <= 2.4 && fabs(genLep.charge) > 0){
                         //genLeptons.push_back(genLep);
-                        if(whichW==0) genLeptons.push_back(genLep);
+                        if(WCharge==0) genLeptons.push_back(genLep);
                     }
 
                     if (doW && ((fabs(genLep.charge) > 0 && genLep.pt >= GenMuon1PtMin && fabs(genLep.eta) <= GenMuon1EtaMax) || (fabs(genLep.charge) == 0 && genLep.pt >= GenMuon2PtMin))){
-                        if(whichW==0) {
+                        if(WCharge==0) {
                             genLeptons.push_back(genLep); 
                             passesWhichWGenCut = true;
                         }
-                        if(whichW== 1 && (genLep.charge<0 || genLep.charge==0)) {
+                        if(WCharge== 1 && (genLep.charge<0 || genLep.charge==0)) {
                             genLeptons.push_back(genLep);
                             passesWhichWGenCut = true;
                         }
-                        if(whichW== -1 && (genLep.charge>0 || genLep.charge==0)) {
+                        if(WCharge== -1 && (genLep.charge>0 || genLep.charge==0)) {
                             genLeptons.push_back(genLep);
                             passesWhichWGenCut = true;
                         }
@@ -1484,15 +1490,15 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
                 
                 //lepton1 = leptons[0];
                 //cout << "how many leptons \t" << leptons.size() << endl;
-                if(whichW==0) {
+                if(WCharge==0) {
                   lepton1 = leptons[0];
                   passesWhichWCut = true;
                 }
-                if(whichW==1 && leptons[0].charge<0) {
+                if(WCharge==1 && leptons[0].charge<0) {
                   lepton1 = leptons[0];
                   passesWhichWCut = true;
                 }
-                if(whichW==-1 && leptons[0].charge>0){
+                if(WCharge==-1 && leptons[0].charge>0){
                   lepton1 = leptons[0];
                   passesWhichWCut = true;
                 }
@@ -4461,7 +4467,7 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
 
 ZJetsAndDPS::ZJetsAndDPS(string fileName_, float lumiScale_, float puScale_, bool useTriggerCorrection_, bool useEfficiencyCorrection_,  int systematics_, int direction_, float xsecfactor_, int RecJetPtMin_, int RecJetPtMax_, int ZPtCutMin_, int ZEtaCutMin_, int ZEtaCutMax_, int METcut_, int MTcut_, bool nEvents_10000_, int RecJetEtaMin_, int RecJetEtaMax_): 
     HistoSet(fileName_.substr(0, fileName_.find("_"))), nEvents_10000(nEvents_10000_), outputDirectory("/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/"),
-    fileName(fileName_), lumiScale(lumiScale_), puScale(puScale_), useTriggerCorrection(useTriggerCorrection_), useEfficiencyCorrection(useEfficiencyCorrection_), 
+    fileName(fileName_), WCharge(WCharge_), lumiScale(lumiScale_), puScale(puScale_), useTriggerCorrection(useTriggerCorrection_), useEfficiencyCorrection(useEfficiencyCorrection_), 
     systematics(systematics_), direction(direction_), xsecfactor(xsecfactor_), RecJetPtMin(RecJetPtMin_), RecJetPtMax(RecJetPtMax_), RecJetEtaMin(RecJetEtaMin_), RecJetEtaMax(RecJetEtaMax_), ZPtCutMin(ZPtCutMin_), ZEtaCutMin(ZEtaCutMin_), ZEtaCutMax(ZEtaCutMax_), METcut(METcut_), MTcut(MTcut_)
 {
 
@@ -4530,6 +4536,9 @@ string ZJetsAndDPS::CreateOutputFileName(bool useRoch, bool doFlat, int doPUStud
 {
     ostringstream result;
     result << outputDirectory << fileName;
+    if(WCharge >0)      result << "_WP";
+    else if(WCharge <0) result << "_WM";
+    else                result << "_WB";
     result << "_EffiCorr_" << useEfficiencyCorrection;
     result << "_TrigCorr_" << useTriggerCorrection;
     result << "_Syst_" << systematics;

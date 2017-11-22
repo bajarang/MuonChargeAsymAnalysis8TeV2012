@@ -1,4 +1,4 @@
-void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,string strDirection){
+void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,string strSystematics,string strDirection){
 
   cout << "We are running on : " << strLineNum << "  " << strDoQCD << "  " << strSystematics << "  " << strDirection << endl; 
   
@@ -22,16 +22,20 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
   }
   
   ///////////////////Assign the arguments to internal parameters/////////////////////////
+  stringstream strStreamWCharge;
   stringstream strStreamLineNum;
   stringstream strStreamDOQCD;
   stringstream strStreamSystematics;
   stringstream strStreamDirection;
 
+  int intWCharge     =   0;
   int intLineNum     =   0;
   int intDOQCD       =  -1;
   int intSystematics =  -1;
   int intDirection   = 100;
 
+  strStreamWCharge     << strWCharge;
+  strStreamWCharge     >> intWCharge;
   strStreamLineNum     << strLineNum;
   strStreamLineNum     >> intLineNum;
   strStreamDOQCD       << strDoQCD;
@@ -42,7 +46,14 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
   strStreamDirection   >> intDirection;
 
   ///////////////////Check if parameters are within respective ranges///////////////////
-  if(intLineNum > 35){
+  if(abs(intWCharge)>1){
+    cout << "You entered WCharge = " << intWCharge << endl;
+    cout << "It should be either 1 or -1" << endl;
+    cout << "Exiting Now." << endl;
+    exit(0);
+  }
+
+  if(intLineNum > 928){
     cout << "You entered Line Number = " << intLineNum << endl;
     cout << "It should be lesser than 35 " << endl;
     cout << "Exiting Now." << endl;
@@ -240,7 +251,7 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
     for (unsigned int i(0); i < NSystData; i++) {
       if (dataSyst[i] != doSysRunning && doSysRunning != 100) continue;
       if (dataDir[i]  != doDirection  && doDirection  != 100) continue;   
-      ZJetsAndDPS SMuData(trimmedFileName, 1., 1, 1, doDataEff, dataSyst[i], dataDir[i], 1, jetPtMin, jetPtMax, ZPtMin, ZEtaMin, ZEtaMax);
+      ZJetsAndDPS SMuData(trimmedFileName, intWCharge, 1., 1, 1, doDataEff, dataSyst[i], dataDir[i], 1, jetPtMin, jetPtMax, ZPtMin, ZEtaMin, ZEtaMax);
       SMuData.Loop(1, 0, intDOQCD, doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
     }
   }
@@ -251,51 +262,51 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
       if (bgSyst[i] != doSysRunning && doSysRunning != 100) continue;
       if (bgDir[i]  != doDirection  && doDirection  != 100) continue;
       if(trimmedFileName.find("_TTJets_")!=string::npos){
-        ZJetsAndDPS SMuTT(trimmedFileName,             muLumi*245.           *1000/6923652., 1, 1, !doDataEff, ttSyst[i], ttDir[i], ttScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuTT(trimmedFileName, intWCharge, muLumi*245.           *1000/6923652., 1, 1, !doDataEff, ttSyst[i], ttDir[i], ttScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuTT.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_ZZ_")!=string::npos){
-        ZJetsAndDPS SMuZZInc(trimmedFileName,          muLumi*17.654        *1000/9799908.,  1, 1, !doDataEff, zzSyst[i], zzDir[i], zzScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuZZInc(trimmedFileName, intWCharge, muLumi*17.654        *1000/9799908.,  1, 1, !doDataEff, zzSyst[i], zzDir[i], zzScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuZZInc.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_WZ_")!=string::npos){
-        ZJetsAndDPS SMuWZInc(trimmedFileName,          muLumi*33.21         *1000/10000283., 1, 1, !doDataEff, wzSyst[i], wzDir[i], wzScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuWZInc(trimmedFileName, intWCharge, muLumi*33.21         *1000/10000283., 1, 1, !doDataEff, wzSyst[i], wzDir[i], wzScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuWZInc.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_WW_")!=string::npos){
-        ZJetsAndDPS SMuWWInc(trimmedFileName,          muLumi*54.838        *1000/10000431., 1, 1, !doDataEff, wwSyst[i], wwDir[i], wwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuWWInc(trimmedFileName, intWCharge, muLumi*54.838        *1000/10000431., 1, 1, !doDataEff, wwSyst[i], wwDir[i], wwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuWWInc.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_T_s_channel_")!=string::npos){
-        ZJetsAndDPS SMuT(trimmedFileName,              muLumi*3.79           *1000/259961.,  1, 1, !doDataEff, tcsSyst[i], tcsDir[i], tcsScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuT(trimmedFileName, intWCharge, muLumi*3.79           *1000/259961.,  1, 1, !doDataEff, tcsSyst[i], tcsDir[i], tcsScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuT.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_T_t_channel_")!=string::npos){
-        ZJetsAndDPS SMuT1(trimmedFileName,             muLumi*56.4           *1000/3758227., 1, 1, !doDataEff, tctSyst[i], tctDir[i], tctScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuT1(trimmedFileName, intWCharge, muLumi*56.4           *1000/3758227., 1, 1, !doDataEff, tctSyst[i], tctDir[i], tctScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuT1.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_T_tW_channel_")!=string::npos){
-        ZJetsAndDPS SMuT2(trimmedFileName,             muLumi*11.1           *1000/497658.,  1, 1, !doDataEff, tcwSyst[i], tcwDir[i], tcwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuT2(trimmedFileName, intWCharge, muLumi*11.1           *1000/497658.,  1, 1, !doDataEff, tcwSyst[i], tcwDir[i], tcwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuT2.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_Tbar_s_channel_")!=string::npos){
-        ZJetsAndDPS SMuTbar(trimmedFileName,           muLumi*1.76           *1000/139974.,  1, 1, !doDataEff, tcsSyst[i], tcsDir[i], tcsScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuTbar(trimmedFileName, intWCharge, muLumi*1.76           *1000/139974.,  1, 1, !doDataEff, tcsSyst[i], tcsDir[i], tcsScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuTbar.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_Tbar_t_channel_")!=string::npos){
-        ZJetsAndDPS SMuTbar1(trimmedFileName,          muLumi*30.7           *1000/1903681., 1, 1, !doDataEff, tctSyst[i], tctDir[i], tctScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuTbar1(trimmedFileName, intWCharge, muLumi*30.7           *1000/1903681., 1, 1, !doDataEff, tctSyst[i], tctDir[i], tctScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuTbar1.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_Tbar_tW_channel_")!=string::npos){
-        ZJetsAndDPS SMuTbar2(trimmedFileName,          muLumi*11.1           *1000/493460.,  1, 1, !doDataEff, tcwSyst[i], tcwDir[i], tcwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuTbar2(trimmedFileName, intWCharge, muLumi*11.1           *1000/493460.,  1, 1, !doDataEff, tcwSyst[i], tcwDir[i], tcwScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuTbar2.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_DYJets10to50_")!=string::npos){
-        ZJetsAndDPS SMuDY10(trimmedFileName,           muLumi*860.5          *1000/11707222., 1, 1, !doDataEff, bgSyst[i], bgDir[i], bgScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
+        ZJetsAndDPS SMuDY10(trimmedFileName,  intWCharge, muLumi*860.5          *1000/11707222., 1, 1, !doDataEff, bgSyst[i], bgDir[i], bgScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax);
         SMuDY10.Loop(1, 0, intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch);
       }
       if(trimmedFileName.find("_DYJets_MIX_UNFOLDING_")!=string::npos){
-        ZJetsAndDPS SMuDYMix(trimmedFileName,          muLumi*3531.8*1000/30459503., 1., 1, !doDataEff, dySyst[i], dyDir[i], dyScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax, 0);
+        ZJetsAndDPS SMuDYMix(trimmedFileName, intWCharge, muLumi*3531.8*1000/30459503., 1., 1, !doDataEff, dySyst[i], dyDir[i], dyScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax, 0);
         SMuDYMix.Loop(1, 0,  intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch );
       }
     }
@@ -310,7 +321,7 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
       if ( ( lepSelection.find("SMu") == 0 || lepSelection.find("SE") == 0 ) && wjSyst[i] == 3) continue; // xsec -- not done for SMu ---
       if (wjSyst[i] != doSysRunning && doSysRunning != 100) continue;
       if (wjDir[i]  != doDirection  && doDirection  != 100) continue;    
-      ZJetsAndDPS SMuWJMix(trimmedFileName,            muLumi*36703. *1000/76102995., 1., 1, !doDataEff, wjSyst[i], wjDir[i], wjScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax, 0);
+      ZJetsAndDPS SMuWJMix(trimmedFileName, intWCharge, muLumi*36703. *1000/76102995., 1., 1, !doDataEff, wjSyst[i], wjDir[i], wjScale[i], jetPtMin, jetPtMax, ZPtMin , ZEtaMin,    ZEtaMax, 0);
       SMuWJMix.Loop(1, doGen,  intDOQCD,  doSSign, doInvMassCut, doBJets, doPUStudy, doFlat, doRoch );
     }
   }
