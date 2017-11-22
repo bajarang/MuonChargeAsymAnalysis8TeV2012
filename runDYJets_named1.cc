@@ -94,7 +94,7 @@ void runDYJets_named1(string strLineNum,string strDoQCD,string strSystematics,st
   string strDOWHAT, strCI, strTotEvents, strEvents, strPartition, strCurretPar, strFileName;
   string strDOWHATofInterest, strCIofInterest, strTotEventsofInterest, strEventsofInterest, strPartitionofInterest, strCurretParofInterest, strFileNameofInterest;
 
-  for(int k=1; k<=35; k++){
+  for(int k=1; k<=928; k++){
     inputFile >> strDOWHAT >> strCI >> strTotEvents >> strEvents >> strPartition >> strCurretPar >> strFileName;
     if(k==intLineNum){
       strDOWHATofInterest    = strDOWHAT;
