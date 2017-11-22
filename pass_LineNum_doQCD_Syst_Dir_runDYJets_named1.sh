@@ -9,32 +9,33 @@
 #//////////////////////////////////////////////////#
 
 #------------------------------------------------#
-LineNum=$1
-doQCD=$2
-systematics=$3
-direction=$4
+WCharge=$1
+LineNum=$2
+doQCD=$3
+systematics=$4
+direction=$5
 
-if [ "$#" -ne 2 ] && [ "$#" -ne 3 ] && [ "$#" -ne 4 ] 
+if [ "$#" -ne 1 ] && [ "$#" -ne 2 ] && [ "$#" -ne 3 ] && [ "$#" -ne 4 ] && [ "$#" -ne 5 ]  
 then
   echo "Illegal number of parameters"
   exit
 fi
 
 
-echo "Line Number : " $LineNum "  doQCD : " $doQCD "  systematics : " $systematics "  direction : " $direction
+echo "WCharge : " $WCharge "  Line Number : " $LineNum "  doQCD : " $doQCD "  systematics : " $systematics "  direction : " $direction
 
 allSystematics="100"
 allDirection="100"
 
 if [ -z "$systematics" ] && [ -z "$direction" ]
 then
-  echo $LineNum $doQCD $allSystematics $allDirection #default systematics = 100
-  root -b -q 'runDYJets_named1.cc("'$LineNum'","'$doQCD'","'$allSystematics'","'$allDirection'")'
+  echo $WCharge $LineNum $doQCD $allSystematics $allDirection #default systematics = 100
+  root -b -q 'runDYJets_named1.cc("'$WCharge'",'$LineNum'","'$doQCD'","'$allSystematics'","'$allDirection'")'
 elif [ -z "$direction" ]
 then
-  echo $LineNum $doQCD $systematics
-  root -b -q 'runDYJets_named1.cc("'$LineNum'","'$doQCD'","'$systematics'","'$direction'")'
+  echo $WCharge $LineNum $doQCD $systematics
+  root -b -q 'runDYJets_named1.cc("'$WCharge'","'$LineNum'","'$doQCD'","'$systematics'","'$direction'")'
 else 
-  echo $LineNum $doQCD $systematics $direction
-  root -b -q 'runDYJets_named1.cc("'$LineNum'","'$doQCD'","'$systematics'","'$direction'")'
+  echo $WCharge $LineNum $doQCD $systematics $direction
+  root -b -q 'runDYJets_named1.cc("'$WCharge'","'$LineNum'","'$doQCD'","'$systematics'","'$direction'")'
 fi
