@@ -1,0 +1,153 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.32/00   2 December 2011   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.32/00 (branches/v5-32-00-patches@42372, May 29 2013, 16:51:00 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+I'm executing rootlogon.C
+
+The Working Direcotry is:
+	/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/
+
+--------------------------------------------------------------------------------
+
+Adding /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/ to includes directories...
+Adding /cvmfs/cms.cern.ch/slc5_amd64_gcc434/external/lhapdf/5.8.5/include/ to includes directories...
+Adding /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/RooUnfold-1.1.1/src to includes directories...
+Include Path -D__USE_XOPEN2K8 to fix lxplus6 compatibility
+Loading RooUnfold libraries...
+
+--------------------------------------------------------------------------------
+
+
+Processing runFinalUnfold.cc++...
+Compiling Sources/getFilesAndHistograms.cc
+Compiling Sources/functions.cc
+Compiling Sources/writeFastPlotsTex.cc
+Compiling Sources/unfoldingFunctions.cc
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions.cc: In function 'TH1D* mergeGenHisto(TH1D*, TH1D*, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions.cc:102:12: warning: unused variable 'binMax' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions.cc: In function 'TH2D* combineTH2DRes(TH2D*, TH2D*, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/unfoldingFunctions.cc:148:12: warning: unused variable 'binMax' [-Wunused-variable]
+Compiling Sources/FinalUnfold.cc
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:31:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.h:34,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH2D* CovToCorr2(TH2D*, std::string)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:28:9: warning: unused variable 'hCorr' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH1D* SetSystErrorsMean(TH1D*, TH1D*, TH1D*, TH1D*, double, std::string)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:300:16: warning: unused variable 'ErrTot' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH1D* ToyMCErrorsStat(std::string, TH1D*, TH1D**, RooUnfoldResponse*, int, TH2D*, TH2D*, int, int, bool, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:560:24: warning: unused variable 'fluctLUMIsig' [-Wunused-variable]
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc: In function 'void FuncUnfold(std::string, int, int, bool, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:77:27: warning: variable 'oppNumberOfToys' set but not used [-Wunused-but-set-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:108:29: warning: unused variable 'fDYPowhegUp' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:108:50: warning: unused variable 'fDYPowhegDown' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:116:33: warning: variable 'hDYGenSherpa' set but not used [-Wunused-but-set-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:116:56: warning: variable 'hDYGenPowheg' set but not used [-Wunused-but-set-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:116:78: warning: unused variable 'hDYGenPowhegUp' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:116:102: warning: unused variable 'hDYGenPowhegDown' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:325:9: warning: variable 'hSumBGErrors' set but not used [-Wunused-but-set-variable]
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold.cc:31:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.h:34,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH1D* Unfold(std::string, RooUnfoldResponse*, TH1D*, TH1D*, int, std::string, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:139:25: warning: 'RObject' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH2D* Unfold2D(std::string, RooUnfoldResponse*, TH2D*, TH2D*, int, std::string, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:156:25: warning: 'RObject' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH2D* CovFromRoo(std::string, RooUnfoldResponse*, TH1D*, TH1D*, int, std::string, int, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:179:26: warning: 'RObject' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH1D* ToyMCErrorsStat(std::string, TH1D*, TH1D**, RooUnfoldResponse*, int, TH2D*, TH2D*, int, int, bool, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:595:31: warning: 'RObject' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h: In function 'TH1D* getSumBG(std::string, std::string, std::string, std::string*, std::string, std::string, int, int, std::string)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/Includes/UnfoldingSyst.h:120:32: warning: 'hOut' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ WE NOW UNFOLD :  ZNGoodJets_Zexc jet pt:30  0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_2_Up_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_2_Up_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_2_Down_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_2_Down_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_5_Up_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_5_Up_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_5_Down_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_Data_dR_5311_EffiCorr_1_TrigCorr_1_Syst_5_Down_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+ got data 
+ got data 
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_1_Up_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_1_Up_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_1_Down_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_1_Down_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_4_Up_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_0_TrigCorr_1_Syst_4_Up_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DY_Sherpa_1NLO4_HepMC_dR_Full_List_EffiCorr_0_TrigCorr_0_Syst_0_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DY_Sherpa_1NLO4_HepMC_dR_Full_List_EffiCorr_0_TrigCorr_0_Syst_0_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+Error in <TFile::TFile>: file HistoFiles/DE_8TeV_DYJets_PowhegZ2jMiNLO_dR_GEN_CernMOJ_EffiCorr_0_TrigCorr_0_Syst_0_JetPtMin_30_VarWidth.root does not exist
+Opening: HistoFiles/DE_8TeV_DYJets_PowhegZ2jMiNLO_dR_GEN_CernMOJ_EffiCorr_0_TrigCorr_0_Syst_0_JetPtMin_30_VarWidth.root   --->   Opened ? 0
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00007f9ec5d5f7be in waitpid () from /lib64/libc.so.6
+#1  0x00007f9ec5cf15c9 in do_system () from /lib64/libc.so.6
+#2  0x00007f9ec732c81c in TUnixSystem::StackTrace() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#3  0x00007f9ec732f003 in TUnixSystem::DispatchSignals(ESignals) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#4  <signal handler called>
+#5  0x00007f9ec7a2b4b0 in getHisto(TFile*, std::string) () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/getFilesAndHistograms_cc.so
+#6  0x00007f9ec1c9cfff in FuncUnfold(std::string, int, int, bool, bool) () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc.so
+#7  0x00007f9ec1ca1945 in FinalUnfold() () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc.so
+#8  0x00007f9ec1ca1989 in G__FinalUnfold_cc_ACLiC_dict__0_1541(G__value*, char const*, G__param*, int) () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc.so
+#9  0x00007f9ec673c767 in Cint::G__ExceptionWrapper(int (*)(G__value*, char const*, G__param*, int), G__value*, char*, G__param*, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#10 0x00007f9ec67e55f1 in G__execute_call () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#11 0x00007f9ec67e59be in G__call_cppfunc () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#12 0x00007f9ec67ca9b3 in G__interpret_func () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#13 0x00007f9ec67b4639 in G__getfunction () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#14 0x00007f9ec678f9b2 in G__getitem () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#15 0x00007f9ec6795f1a in G__getexpr () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#16 0x00007f9ec681568c in G__exec_statement () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#17 0x00007f9ec677bb7b in G__exec_tempfile_core () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#18 0x00007f9ec677d0fb in G__exec_tempfile () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#19 0x00007f9ec68262ae in G__process_cmd () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+#20 0x00007f9ec72f94f1 in TCint::ProcessLine(char const*, TInterpreter::EErrorCode*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#21 0x00007f9ec72f0023 in TCint::ProcessLineSynch(char const*, TInterpreter::EErrorCode*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#22 0x00007f9ec7264ddd in TApplication::ExecuteFile(char const*, int*, bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#23 0x00007f9ec7263b9a in TApplication::ProcessLine(char const*, bool, int*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+#24 0x00007f9ec7a61699 in TRint::Run(bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libRint.so
+#25 0x0000000000400f8c in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00007f9ec7a2b4b0 in getHisto(TFile*, std::string) () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/getFilesAndHistograms_cc.so
+#6  0x00007f9ec1c9cfff in FuncUnfold(std::string, int, int, bool, bool) () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc.so
+#7  0x00007f9ec1ca1945 in FinalUnfold() () from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp/./Sources/FinalUnfold_cc.so
+===========================================================
+
+

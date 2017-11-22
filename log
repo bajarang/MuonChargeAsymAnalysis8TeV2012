@@ -1,0 +1,127 @@
+Line Number :  15   doQCD :  0   systematics :  3   direction :  1
+15 0 3 1
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.32/00   2 December 2011   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.32/00 (branches/v5-32-00-patches@42372, May 29 2013, 16:51:00 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+I'm executing rootlogon.C
+
+The Working Direcotry is:
+	/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/
+
+--------------------------------------------------------------------------------
+
+Adding /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/Includes/ to includes directories...
+Adding /cvmfs/cms.cern.ch/slc5_amd64_gcc434/external/lhapdf/5.8.5/include/ to includes directories...
+Adding /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/RooUnfold-1.1.1/src to includes directories...
+Include Path -D__USE_XOPEN2K8 to fix lxplus6 compatibility
+Loading RooUnfold libraries...
+
+--------------------------------------------------------------------------------
+
+
+Processing runDYJets_named1.cc("15","0","3","1")...
+15  0  3  1
+Compiling Sources/getFilesAndHistograms.cc
+Compiling Sources/functions.cc
+Compiling Sources/funcReweightResp.cc
+Compiling Sources/HistoSet.cc
+Compiling Sources/rochcor2012wasym_hasan.cc
+In file included from /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/rochcor2012wasym_hasan_cc_ACLiC_dict.h:34:0,
+                 from /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/rochcor2012wasym_hasan_cc_ACLiC_dict.cxx:17:
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/rochcor2012wasym_hasan.cc:271:6: warning: unused parameter 'runopt' [-Wunused-parameter]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/rochcor2012wasym_hasan.cc:326:6: warning: unused parameter 'runopt' [-Wunused-parameter]
+Compiling Sources/ZJetsAndDPS.cc
+In file included from /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS_cc_ACLiC_dict.h:34:0,
+                 from /grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS_cc_ACLiC_dict.cxx:17:
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc: In member function 'void ZJetsAndDPS::Loop(bool, bool, int, bool, bool, int, int, bool, bool, bool, bool, std::string, int)':
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:53:11: warning: declaration of 'RecJetPtMin' shadows a member of 'this' [-Wshadow]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:53:26: warning: declaration of 'RecJetPtMax' shadows a member of 'this' [-Wshadow]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:53:41: warning: declaration of 'RecJetEtaMin' shadows a member of 'this' [-Wshadow]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:53:57: warning: declaration of 'RecJetEtaMax' shadows a member of 'this' [-Wshadow]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:620:183: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:620:183: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:623:162: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:623:162: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1198:22: warning: unused variable 'jetPassesBetaCut' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1199:22: warning: unused variable 'jetPassesBetaStarCut' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:458:14: warning: variable 'cutNum4Iso' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:458:56: warning: variable 'cutNum6BJets' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:556:34: warning: variable 'passesLeptonAndMT' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:565:15: warning: unused variable 'sysdev' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:567:13: warning: unused variable 'sumLepCharge' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:925:27: warning: unused variable 'METscale' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1338:56: warning: variable 'passesGenEWKJetFwdEta' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:46:26: warning: variable 'GenMuon1PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:46:41: warning: variable 'GenMuon1EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:47:26: warning: variable 'GenMuon2PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:47:41: warning: variable 'GenMuon2EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:47:57: warning: variable 'GenMuon2EtaMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:49:26: warning: variable 'RecMuon1PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:49:41: warning: variable 'RecMuon1EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:50:26: warning: variable 'RecMuon2PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:50:41: warning: variable 'RecMuon2EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:50:57: warning: variable 'RecMuon2EtaMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:50:73: warning: variable 'RecMuon2Iso' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:52:26: warning: variable 'GenJetPtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:55:26: warning: variable 'GenV_MassMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:55:41: warning: variable 'GenV_PtMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:55:57: warning: variable 'GenV_PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:55:73: warning: variable 'GenV_EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:55:87: warning: variable 'GenV_EtaMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:56:26: warning: variable 'RecV_MassMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:56:41: warning: variable 'RecV_PtMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:56:57: warning: variable 'RecV_PtMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:56:73: warning: variable 'RecV_EtaMin' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:56:87: warning: variable 'RecV_EtaMax' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:242:40: warning: unused variable 'cutNum7TotalWeight' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:247:12: warning: unused variable 'MTCut' [-Wunused-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:250:59: warning: variable 'doTTreweighting' set but not used [-Wunused-but-set-variable]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:3910:70: warning: 'genLepton2.leptonStruct::pt' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1540:17: warning: 'RecV_MassMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:881:21: warning: 'GenV_MassMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1647:17: warning: 'RecJetPtMax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1590:17: warning: 'RecJetPtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1623:17: warning: 'GenJetEtaMax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1623:17: warning: 'GenJetEtaMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:1647:17: warning: 'GenJetPtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:260:38: warning: 'RecMuon2PtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:664:134: warning: 'RecMuon1Iso' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:684:21: warning: 'RecMuon1EtaMax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:629:107: warning: 'RecMuon1PtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:840:21: warning: 'GenMuon2PtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:840:21: warning: 'GenMuon1EtaMax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+/grid_mnt/public/bsutar/Asym2016-8TeV/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/ZJetsAndDPS.cc:840:21: warning: 'GenMuon1PtMin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+3  3  3   matched
+READING Input_DB_Summary.txt file 
+00001  00015  0000991539  00050  00003  /afs/cern.ch/work/d/dugad/public/oct_2017/SMu_8TeV_WW_dR_5311_00003.root
+intDOWHAT : 1
+--> Reading Input Ntuple file : SMu_8TeV_WW_dR_5311_00003.root
+
+SMu_8TeV_WW_dR_5311_00003
+1  0  3  1
+3
+doWhat : 1
+Meghna : 0  12
+Meghna : 1  12
+Meghna : 2  12
+Meghna : 3  12
+Meghna : 4  12
+4  3  1
+Loading file: /home/bsutar/t3store/Asym2016-8TeV/DataW/SMu_8TeV_WW_dR_5311_00003.root
+Error: Symbol DMuWWInc is not defined in current scope  runDYJets_named1.cc:269:
+Error: Failed to evaluate DMuWWInc.Loop(1,0,intDOQCD,doSSign,doInvMassCut,doBJets,doPUStudy,doFlat,doRoch)
+*** Interpreter error recovered ***

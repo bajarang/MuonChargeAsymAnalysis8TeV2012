@@ -1,0 +1,16 @@
+//         GenMuon1PtMin    GenMuon1PtMax    GenMuon1EtaMin    GenMuon1EtaMax
+GenMuon1   25.0             9999.0           -2.1              2.1
+//         GenMuon2PtMin    GenMuon2PtMax    GenMuon2EtaMin    GenMuon2EtaMax
+GenMuon2   15.0             9999.0           -2.1              2.1
+//         RecMuon1PtMin    RecMuon1PtMax    RecMuon1EtaMin    RecMuon1EtaMax     RecMuon1Iso
+RecMuon1   25.0             9999.0           -2.1              2.1                0.12
+//         RecMuon2PtMin    RecMuon2PtMax    RecMuon2EtaMin    RecMuon2EtaMax     RecMuon2Iso
+RecMuon2   15.0             9999.0           -2.1              2.1                0.12
+//         GenJetPtMin      GenJetPtMax      GenJetEtaMin      GenJetEtaMax
+GenJet     30.0             0.0              -2.4              2.4
+//         RecJetPtMin      RecJetPtMax      RecJetEtaMin      RecJetEtaMax
+RecJet     30.0             0.0              -2.4              2.4
+//         GenV_MassMin     GenV_MassMax     GenV_PtMin        GenV_PtMax         GenV_EtaMin     GenV_EtaMax
+GenV       50.0             9999.0           0.0               9999.0             -999999.0       999999.0
+//         RecV_MassMin     RecV_MassMax     RecV_PtMin        RecV_PtMax         RecV_EtaMin     RecV_EtaMax
+RecV       50.0             9999.0           0.0               9999.0             -999999.0       999999.0

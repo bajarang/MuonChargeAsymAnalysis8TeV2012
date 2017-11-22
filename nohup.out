@@ -1,0 +1,311 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.32/00   2 December 2011   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.32/00 (branches/v5-32-00-patches@42372, May 29 2013, 16:51:00 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+I'm executing rootlogon.C
+
+The Working Direcotry is:
+	/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/
+
+--------------------------------------------------------------------------------
+
+Adding /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/Includes/ to includes directories...
+Adding /cvmfs/cms.cern.ch/slc5_amd64_gcc434/external/lhapdf/5.8.5/include/ to includes directories...
+Adding /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/RooUnfold-1.1.1/src to includes directories...
+Include Path -D__USE_XOPEN2K8 to fix lxplus6 compatibility
+Loading RooUnfold libraries...
+
+--------------------------------------------------------------------------------
+
+
+Processing runMyFastPlots.cc++...
+Compiling Sources/getFilesAndHistograms.cc
+Compiling Sources/functions.cc
+Compiling Sources/writeFastPlotsTex.cc
+Compiling Sources/unfoldingFunctions.cc
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions.cc: In function 'TH1D* mergeGenHisto(TH1D*, TH1D*, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions.cc:102:12: warning: unused variable 'binMax' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions.cc: In function 'TH2D* combineTH2DRes(TH2D*, TH2D*, int)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/unfoldingFunctions.cc:148:12: warning: unused variable 'binMax' [-Wunused-variable]
+Compiling Sources/myFastPlots.cc
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc: In function 'void FastPlotsRun(const int*, int, std::string, std::string, bool, bool, int, int, bool, int, int, bool, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:119:213: warning: declaration of 'JetPtMin' shadows a global declaration [-Wshadow]
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:31:5: warning: shadowed declaration is here [-Wshadow]
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:235:9: warning: unused variable 'nIter' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:240:9: warning: unused variable 'nIterSVD' [-Wunused-variable]
+In file included from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.h:34:0,
+                 from /afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots_cc_ACLiC_dict.cxx:17:
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc: In function 'void myplotChi2OfChange(RooUnfoldResponse*, int, TH1D*, TH1D**, int, std::string, std::string, std::string, std::string, TFile*, bool, bool)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:680:11: warning: unused variable 'tmp' [-Wunused-variable]
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc: In function 'int UnfoldData(TString, TString, int, RooUnfoldResponse*, TH1D*, TH1D*&, std::string, TString)':
+/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/TreeAnalysis2012/WJetsp_CENTRAL_QCD0/./Sources/myFastPlots.cc:781:11: warning: 'f' may be used uninitialized in this function [-Wmaybe-uninitialized]
+46	CLOSURETEST : 	0
+121	CLOSURETEST : 	|	0
+../../Results/PNGFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/FastPlots_30_Syst_0_leppt_25_30_VarWidth/SMu_8TeV_lepEta_Zinc0jet_leppt_25_30_fastplots_VarWidth.root
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Data_dR_5311_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_ZZ_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WZ_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WW_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DataQCD_dR_5311_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_s_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_t_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_tW_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_s_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_t_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_tW_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_TTJets_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DYJets10to50_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+Opening: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WJetsALL_MIX_UNFOLDING_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Opened ? 1
+-----------------------
+--------- start finding nIter -----------
+niter = 1
+Chi2 = 0.001488, Prob = 1, NDF = 39, igood = 0
+Will use 1 iterations with a final Chi2/ndf of: 3.81472e-05
+niter = 2
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 3
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 4
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 5
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 6
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 7
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 8
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 9
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 10
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 11
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 12
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 13
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 14
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 15
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 16
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 17
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 18
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 19
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 20
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 21
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 22
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 23
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 24
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 25
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 26
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 27
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 28
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 29
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 30
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 31
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 32
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 33
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 34
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 35
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 36
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 37
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 38
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 39
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 40
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 41
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 42
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 43
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 44
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 45
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 46
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+
+---------------------------------------------------------------------------------------------------------------
+-
+ nIter: 4
+ finalNIter: 1
+
+---------------------------------------------------------------------------------------------------------------
+-
+-----------------------
+--------- start finding nIter -----------
+niter = 1
+Chi2 = 83.114254, Prob = 4.97541e-05, NDF = 39, igood = 0
+niter = 2
+Chi2 = 80.782161, Prob = 9.6265e-05, NDF = 39, igood = 0
+niter = 3
+Chi2 = 70.458175, Prob = 0.00149753, NDF = 39, igood = 0
+niter = 4
+Chi2 = 63.960744, Prob = 0.00708809, NDF = 39, igood = 0
+niter = 5
+Chi2 = 58.432396, Prob = 0.0234555, NDF = 39, igood = 0
+niter = 6
+Chi2 = 53.629158, Prob = 0.0595134, NDF = 39, igood = 0
+niter = 7
+Chi2 = 49.539906, Prob = 0.120154, NDF = 39, igood = 0
+niter = 8
+Chi2 = 45.852448, Prob = 0.209219, NDF = 39, igood = 0
+niter = 9
+Chi2 = 42.607681, Prob = 0.318625, NDF = 39, igood = 0
+niter = 10
+Chi2 = 39.264195, Prob = 0.458037, NDF = 39, igood = 0
+niter = 11
+Chi2 = 36.019158, Prob = 0.606594, NDF = 39, igood = 0
+niter = 12
+Chi2 = 32.621884, Prob = 0.754632, NDF = 39, igood = 0
+niter = 13
+Chi2 = 29.475899, Prob = 0.865217, NDF = 39, igood = 0
+niter = 14
+Chi2 = 26.299862, Prob = 0.940011, NDF = 39, igood = 0
+Will use 14 iterations with a final Chi2/ndf of: 0.674355
+niter = 15
+Chi2 = 23.254076, Prob = 0.978512, NDF = 39, igood = 0
+niter = 16
+Chi2 = 20.703675, Prob = 0.992874, NDF = 39, igood = 0
+niter = 17
+Chi2 = 18.310948, Prob = 0.998052, NDF = 39, igood = 0
+niter = 18
+Chi2 = 16.408769, Prob = 0.999448, NDF = 39, igood = 0
+niter = 19
+Chi2 = 14.591557, Prob = 0.99987, NDF = 39, igood = 0
+niter = 20
+Chi2 = 13.112855, Prob = 0.999968, NDF = 39, igood = 0
+niter = 21
+Chi2 = 11.706568, Prob = 0.999993, NDF = 39, igood = 0
+niter = 22
+Chi2 = 10.457140, Prob = 0.999999, NDF = 39, igood = 0
+niter = 23
+Chi2 = 9.339925, Prob = 1, NDF = 39, igood = 0
+niter = 24
+Chi2 = 8.286105, Prob = 1, NDF = 39, igood = 0
+niter = 25
+Chi2 = 7.436939, Prob = 1, NDF = 39, igood = 0
+niter = 26
+Chi2 = 6.573595, Prob = 1, NDF = 39, igood = 0
+niter = 27
+Chi2 = 5.950612, Prob = 1, NDF = 39, igood = 0
+niter = 28
+Chi2 = 5.317044, Prob = 1, NDF = 39, igood = 0
+niter = 29
+Chi2 = 4.916079, Prob = 1, NDF = 39, igood = 0
+niter = 30
+Chi2 = 4.554760, Prob = 1, NDF = 39, igood = 0
+niter = 31
+Chi2 = 4.208703, Prob = 1, NDF = 39, igood = 0
+niter = 32
+Chi2 = 3.952543, Prob = 1, NDF = 39, igood = 0
+niter = 33
+Chi2 = 3.707608, Prob = 1, NDF = 39, igood = 0
+niter = 34
+Chi2 = 3.515268, Prob = 1, NDF = 39, igood = 0
+niter = 35
+Chi2 = 3.242309, Prob = 1, NDF = 39, igood = 0
+niter = 36
+Chi2 = 3.139306, Prob = 1, NDF = 39, igood = 0
+niter = 37
+Chi2 = 2.948174, Prob = 1, NDF = 39, igood = 0
+niter = 38
+Chi2 = 2.818329, Prob = 1, NDF = 39, igood = 0
+niter = 39
+Chi2 = 2.765141, Prob = 1, NDF = 39, igood = 0
+niter = 40
+Chi2 = 2.698704, Prob = 1, NDF = 39, igood = 0
+niter = 41
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 42
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 43
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 44
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 45
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+niter = 46
+Chi2 = 0.000000, Prob = 1, NDF = 39, igood = 0
+
+---------------------------------------------------------------------------------------------------------------
+-
+ nIter: 14
+ finalNIter: 14
+
+---------------------------------------------------------------------------------------------------------------
+-
+ Start processing Unfolding using method: Bayes
+ Unfolding using Center Kterm 
+ Unfolding using Down Kterm 
+ Unfolding using Up Kterm
+ Start processing Chi2OfChange Plot 
+ Start processing Unfolding using method: BinByBin
+ Start processing Unfolding using method: SVD
+ Unfolding using Center Kterm 
+ Unfolding using Down Kterm 
+ Unfolding using Up Kterm
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Data_dR_5311_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WJetsALL_MIX_UNFOLDING_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_ZZ_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WZ_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_WW_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DataQCD_dR_5311_EffiCorr_0_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_s_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_t_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_T_tW_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_s_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_t_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_Tbar_tW_channel_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_TTJets_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DYJets10to50_dR_5311_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1
+Closing: ../../Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/SMu_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_1_TrigCorr_1_Syst_0_JetPtMin_30_VarWidth_BVeto_MET15.root   --->   Closed ? 1

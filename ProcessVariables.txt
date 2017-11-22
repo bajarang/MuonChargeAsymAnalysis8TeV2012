@@ -1,0 +1,6 @@
+  DOWHAT           0 
+  DOSYSRUNNING     0
+  DOQCD            0
+  DOBJETS          -1
+  
+
