@@ -92,30 +92,31 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   string fileNameFinalTop;
   for(int ii=0; ii<6; ii++){
     fileNameTopChannel[ii] = directory + lepSelection + energy + whichTopChannel[ii] + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
-    //cout << ii << "  " << fileNameTopChannel[ii] << endl;
+    cout << "Merging following files : " << endl;
+    cout << ii << " - " << fileNameTopChannel[ii] << endl;
   }
+  cout << "into this file : " << endl; 
   fileNameFinalTop         = directory + lepSelection + energy + "Top_" + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
-
+  cout << fileNameFinalTop << endl << endl;
  
-  TFile *f1 = new TFile(str1.c_str());
-  TFile *f2 = new TFile(str2.c_str());
-  TFile *f3 = new TFile(str3.c_str());
-  TFile *f4 = new TFile(str4.c_str());
-  TFile *f5 = new TFile(str5.c_str());
-  TFile *f6 = new TFile(str6.c_str());
-  TFile *ff = new TFile(strf.c_str(), "RECREATE");
+  //open TFiles
+  TFile *topTFile[6];
+  for(int jj=0; jj<6; jj++){
+    topTFile[jj] = new TFile(fileNameTopChannel[jj].c_str(),"READ");
+  }
+  TFile *finalTopTFile = new TFile(fileNameFinalTop.c_str(), "RECREATE");
 
-  int nHist = f1->GetListOfKeys()->GetEntries();   
+  int nHist = topTFile[0]->GetListOfKeys()->GetEntries();   
   cout << nHist << endl;
   
   for (int i(0); i < nHist; i++){
-    string hName = f1->GetListOfKeys()->At(i)->GetName();
-    TH1D *h1 = (TH1D*) f1->Get(hName.c_str()); 
-    TH1D *h2 = (TH1D*) f2->Get(hName.c_str()); 
-    TH1D *h3 = (TH1D*) f3->Get(hName.c_str()); 
-    TH1D *h4 = (TH1D*) f4->Get(hName.c_str()); 
-    TH1D *h5 = (TH1D*) f5->Get(hName.c_str()); 
-    TH1D *h6 = (TH1D*) f6->Get(hName.c_str()); 
+    string hName = topTFile[0]->GetListOfKeys()->At(i)->GetName();
+    TH1D     *h1 = (TH1D*) topTFile[0]->Get(hName.c_str()); 
+    TH1D     *h2 = (TH1D*) topTFile[1]->Get(hName.c_str()); 
+    TH1D     *h3 = (TH1D*) topTFile[2]->Get(hName.c_str()); 
+    TH1D     *h4 = (TH1D*) topTFile[3]->Get(hName.c_str()); 
+    TH1D     *h5 = (TH1D*) topTFile[4]->Get(hName.c_str()); 
+    TH1D     *h6 = (TH1D*) topTFile[5]->Get(hName.c_str()); 
 
     TH1D *hSum = (TH1D*) h1->Clone();
     hSum->Add(h2);
@@ -123,17 +124,15 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
     hSum->Add(h4);
     hSum->Add(h5);
     hSum->Add(h6);
-    ff->cd();
+    finalTopTFile->cd();
     hSum->Write();
   }
 
-  f1->Close();
-  f2->Close();
-  f3->Close();
-  f4->Close();
-  f5->Close();
-  f6->Close();
-  ff->Close();
+  for(int kk=0; kk<6; kk++){
+    topTFile[kk]->Close();
+  }
+  
+  finalTopTFile->Close();
   
   // DY
   cout << "DY\t" << syst << "\t" << doQCD << endl;
