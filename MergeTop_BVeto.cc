@@ -4,8 +4,10 @@
 #include <TFile.h>
 #include <sstream>
 
+//declaration
 void runMergeTop_BVeto(string lepSelection = "DE", int systematics =0  , int jetPtCutMin = 30 , int doQCD = 0 , int doBJets = 0, int rochcorr = 0);
 
+//instance
 void MergeTop_BVeto(){
    
   runMergeTop_BVeto("SMu",0,30,0,1,0);
@@ -15,6 +17,7 @@ void MergeTop_BVeto(){
 
 }
 
+//definition
 void runMergeTop_BVeto(string lepSelection, int systematics, int jetPtCutMin, int doQCD, int doBJets, int rochcorr){
 
   TH1::SetDefaultSumw2();
@@ -31,18 +34,25 @@ void runMergeTop_BVeto(string lepSelection, int systematics, int jetPtCutMin, in
   if(rochcorr == 1) str_rochcorr = "_rochester";
 
   string syst;
-  if      (systematics ==  0) syst =      "Syst_0_";
-  else if (systematics ==  1) syst =   "Syst_1_Up_"; 
-  else if (systematics == -1) syst = "Syst_1_Down_"; 
-  else if (systematics ==  3) syst =   "Syst_3_Up_"; 
-  else if (systematics == -3) syst = "Syst_3_Down_"; 
-  else if (systematics ==  7) syst =   "Syst_7_Up_"; 
-  else if (systematics == -7) syst = "Syst_7_Down_"; 
-  else if (systematics ==  8) syst =   "Syst_8_Up_"; 
-  else if (systematics ==  6) syst =   "Syst_6_Up_"; 
-  else if (systematics == -6) syst = "Syst_6_Down_"; 
-  else if (systematics ==  5) syst =   "Syst_5_Up_"; 
-  else if (systematics == -5) syst = "Syst_5_Down_"; 
+  if      (systematics ==  0)  syst =       "Syst_0_";
+  else if (systematics ==  1)  syst =    "Syst_1_Up_"; 
+  else if (systematics == -1)  syst =  "Syst_1_Down_"; 
+  else if (systematics ==  2)  syst =    "Syst_2_Up_"; 
+  else if (systematics == -2)  syst =  "Syst_2_Down_"; 
+  else if (systematics ==  3)  syst =    "Syst_3_Up_"; 
+  else if (systematics == -3)  syst =  "Syst_3_Down_"; 
+  else if (systematics ==  4)  syst =    "Syst_4_Up_"; 
+  else if (systematics ==  5)  syst =    "Syst_5_Up_"; 
+  else if (systematics == -5)  syst =  "Syst_5_Down_"; 
+  else if (systematics ==  6)  syst =    "Syst_6_Up_"; 
+  else if (systematics == -6)  syst =  "Syst_6_Down_"; 
+  else if (systematics ==  7)  syst =    "Syst_7_Up_"; 
+  else if (systematics == -7)  syst =  "Syst_7_Down_"; 
+  else if (systematics ==  8)  syst =    "Syst_8_Up_"; 
+  else if (systematics ==  9)  syst =    "Syst_9_Up_"; 
+  else if (systematics ==  10) syst =   "Syst_10_Up_"; 
+  else if (systematics ==  11) syst =   "Syst_11_Up_"; 
+  else if (systematics == -11) syst = "Syst_11_Down_"; 
 
   string directory = "";
   if(systematics == 0){
