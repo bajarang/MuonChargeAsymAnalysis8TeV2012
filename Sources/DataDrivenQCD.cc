@@ -75,7 +75,7 @@ void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int directi
   nameQCDout.insert(nameQCDout.find("_Data") + 5,"QCD"); 
   size_t found;
   found = nameQCDout.find("Syst_0");
-  nameQCDout.replace(int(found),6,"Syst_" + systematicsmc);
+  nameQCDout.replace(int(found),6,"Syst_" + strSystematics);
   TFile *fOut = new TFile(nameQCDout.c_str(), "recreate");
   
   
@@ -119,19 +119,18 @@ void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor, int
 
   // Get data files
   for ( int i = 0 ; i < NQCD ; i++){
-    fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, charge, systematics, direction, JetPtCutMin, doBJets, i, MET, mT, type);
+    fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, charge, systematics, direction, doBJets, i, MET, mT, type);
   }
   exit(0);
 
   /// get MC files
-  syst = systematicsmc;
   for ( int i=0 ; i < NQCD ; i++){
     cout << endl;
     for ( int j = 1 ; j < NFILESWJETS ; j++){
       int sel = j ;
       if ( j == 1 ) sel = 24 ;
       cout << endl;
-      fMC[i][j] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[sel].filename, charge, systematics, direction, JetPtCutMin, doBJets, i, MET, mT, type);
+      fMC[i][j] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel].filename, charge, systematics, direction, doBJets, i, MET, mT, type);
       TH1D *hTemp2 = getHisto(fMC[i][j], "ZNGoodJets_Zexc");
       cout << " going to fetch " << ProcessInfo[sel].filename << "   " << hTemp2 ->Integral()<<endl;
     }
