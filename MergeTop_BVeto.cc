@@ -27,6 +27,15 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   TH1::SetDefaultSumw2();
   TH2::SetDefaultSumw2();
 
+  //charge
+  ostringstream strCharge;
+  if(charge==1){
+    strCharge << "WP";
+  }
+  else {
+    strCharge << "WM";
+  }
+
   ostringstream strJetPtCutMin; 
   strJetPtCutMin << jetPtCutMin;
   ostringstream doQCDStr;     
