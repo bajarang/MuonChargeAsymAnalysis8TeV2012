@@ -54,8 +54,8 @@ bool useRoch = false;
 string systematicsdata = "0";
 string systematicsmc = "0";
 
-//-------------------------------------------------------------------------------------------
-void DataDrivenQCD( string leptonFlavor, int METcut , int doBJets ){
+//--   Definition ---------------------------------------------------------------------------
+void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPTCutMin, int doBJets, int MET, int mT, string type){
     
     TH1::SetDefaultSumw2();
     
