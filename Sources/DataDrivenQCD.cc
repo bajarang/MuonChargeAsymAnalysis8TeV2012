@@ -48,10 +48,8 @@ const int NQCD = 4 ;
 
 string energy = getEnergy();
 int JetPtMin(30);
-////int JetPtMin(30);
 int JetPtMax(0);
 bool useRoch = false;
-//bool useRoch = true;
 
 string systematicsdata = "0";
 string systematicsmc = "0";
