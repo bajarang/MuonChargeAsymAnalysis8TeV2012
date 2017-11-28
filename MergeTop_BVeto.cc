@@ -57,13 +57,19 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   else if(direction == 1) strDirection = "UP";
   else                    strDirection = "DN";
 
+  //jetPtCutMin
   ostringstream strJetPtCutMin; 
   strJetPtCutMin << jetPtCutMin;
-  ostringstream doQCDStr;     
-  doQCDStr << doQCD ;
 
-  string str_dobjets = "";
-  if(doBJets == 1)  str_dobjets = "_BVeto";
+  //doBJets
+  string strDoBJets = "";
+  if(doBJets == -1)  strDoBJets = "_BVeto";
+
+  //doQCD
+  ostringstream strStreamDoQCD;     
+  strStreamDoQCD << doQCD ;
+  string strDoQCD;
+  strDoQCD = strStreamDoQCD.str();
 
   string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/";
   
