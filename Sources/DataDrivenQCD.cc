@@ -48,48 +48,46 @@ const int NQCD = 4 ;
 
 string energy = getEnergy();
 
-//--   Definition ---------------------------------------------------------------------------
+//--   Definition (9 arguments passed)---------------------------------------------------------------------------
 void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPTCutMin, int doBJets, int MET, int mT, string type){
     
-    TH1::SetDefaultSumw2();
-    
-    TFile *fData[NQCD] = {NULL};
-    TFile *fMC[NQCD][NFILESWJETS] = {{NULL}};
-    
-    FuncOpenAllFiles(fData, fMC, leptonFlavor, METcut, false, true, doBJets, systematicsdata);
-    vector<string> histoNameRun = getVectorOfHistoNames(fData);
-    
-    string nameQCDout = fData[0]->GetName();
-    //nameQCDout.insert(nameQCDout.find("Data") + 4,"QCD");
-    nameQCDout.insert(nameQCDout.find("_Data") + 5,"QCD");
-    size_t found;
-    found = nameQCDout.find("Syst_0");
-    nameQCDout.replace(int(found),6,"Syst_" + systematicsmc);
-    TFile *fOut = new TFile(nameQCDout.c_str(), "recreate");
-    
-    
-    for (int i(0); i < int(histoNameRun.size()) ; i++){
-        cout << endl; cout << endl;
-        cout << " --- processing histogram: " << i << " : " << histoNameRun[i] << endl;
-        FuncDataDrivenQCD(histoNameRun[i], fData, fMC, fOut);
+  TH1::SetDefaultSumw2();
+  
+  TFile *fData[NQCD] = {NULL};
+  TFile *fMC[NQCD][NFILESWJETS] = {{NULL}};
+  
+  FuncOpenAllFiles(fData, fMC, leptonFlavor, charge, systematics, direction, JetPtCutMin, doBJets, MET, mT, type); //instance (11 arguments passed)
+  vector<string> histoNameRun = getVectorOfHistoNames(fData);
+  
+  string nameQCDout = fData[0]->GetName();
+  //nameQCDout.insert(nameQCDout.find("Data") + 4,"QCD");
+  nameQCDout.insert(nameQCDout.find("_Data") + 5,"QCD");
+  size_t found;
+  found = nameQCDout.find("Syst_0");
+  nameQCDout.replace(int(found),6,"Syst_" + systematicsmc);
+  TFile *fOut = new TFile(nameQCDout.c_str(), "recreate");
+  
+  
+  for (int i(0); i < int(histoNameRun.size()) ; i++){
+    cout << endl; cout << endl;
+    cout << " --- processing histogram: " << i << " : " << histoNameRun[i] << endl;
+    FuncDataDrivenQCD(histoNameRun[i], fData, fMC, fOut);
+  }
+  
+  //-- Close all the files ------------------------------
+  cout << "I m closing the files" << endl;
+  for (int i(0); i < NQCD; i++) {
+    closeFile(fData[i]);
+    for (int j(0); j < NFILESWJETS; j++){
+      closeFile(fMC[i][j]);
     }
-    
-    //-- Close all the files ------------------------------
-    cout << "I m closing the files" << endl;
-    for (int i(0); i < NQCD; i++) {
-        closeFile(fData[i]);
-        for (int j(0); j < NFILESWJETS; j++){
-            closeFile(fMC[i][j]);
-        }
-    }
-    fOut ->Close();
-    cout << "QCD calculation is done. All files are closed." << endl;
-    //-----------------------------------------------------
-    
+  }
+  fOut ->Close();
+  cout << "QCD calculation is done. All files are closed." << endl;
+  //-----------------------------------------------------
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int METcut, bool doFlat , bool doVarWidth, int doBJets, string syst){
     // Get data files
