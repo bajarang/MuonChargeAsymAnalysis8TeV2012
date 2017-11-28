@@ -29,7 +29,7 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
 
   //charge
   ostringstream strCharge;
-  if(charge==1){
+  if(charge == 1){
     strCharge << "WP";
   }
   else {
@@ -37,21 +37,25 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   }
 
   //systematics
-  string syst;
-  if      (systematics ==  0)  syst =    "Syst_0_";
-  else if (systematics ==  1)  syst =    "Syst_1_"; 
-  else if (systematics ==  2)  syst =    "Syst_2_"; 
-  else if (systematics ==  3)  syst =    "Syst_3_"; 
-  else if (systematics ==  4)  syst =    "Syst_4_"; 
-  else if (systematics ==  5)  syst =    "Syst_5_"; 
-  else if (systematics ==  6)  syst =    "Syst_6_"; 
-  else if (systematics ==  7)  syst =    "Syst_7_"; 
-  else if (systematics ==  8)  syst =    "Syst_8_"; 
-  else if (systematics ==  9)  syst =    "Syst_9_"; 
-  else if (systematics ==  10) syst =   "Syst_10_"; 
-  else if (systematics ==  11) syst =   "Syst_11_"; 
+  string strSystematics;
+  if      (systematics ==  0)  strSystematics =    "Syst_0_";
+  else if (systematics ==  1)  strSystematics =    "Syst_1_"; 
+  else if (systematics ==  2)  strSystematics =    "Syst_2_"; 
+  else if (systematics ==  3)  strSystematics =    "Syst_3_"; 
+  else if (systematics ==  4)  strSystematics =    "Syst_4_"; 
+  else if (systematics ==  5)  strSystematics =    "Syst_5_"; 
+  else if (systematics ==  6)  strSystematics =    "Syst_6_"; 
+  else if (systematics ==  7)  strSystematics =    "Syst_7_"; 
+  else if (systematics ==  8)  strSystematics =    "Syst_8_"; 
+  else if (systematics ==  9)  strSystematics =    "Syst_9_"; 
+  else if (systematics == 10)  strSystematics =   "Syst_10_"; 
+  else if (systematics == 11)  strSystematics =   "Syst_11_"; 
 
-  
+  //direction 
+  string strDirection
+  if (direction == -1)    strDirection = "CN";
+  else if(direction == 1) strDirection = "UP";
+  else                    strDirection = "DN";
 
   ostringstream strJetPtCutMin; 
   strJetPtCutMin << jetPtCutMin;
