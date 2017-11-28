@@ -55,17 +55,7 @@ void runMergeTop_BVeto(string lepSelection, int systematics, int jetPtCutMin, in
   else if (systematics == -11) syst = "Syst_11_Down_"; 
 
   string directory = "";
-  if(systematics == 0){
-    if(rochcorr == 0 ){
-      directory = "/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/Systematics/CENTRAL/ComparisonDataWithMC/";
-    }
-    if(rochcorr == 1 ){
-      directory = "/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/Results/HistoFiles/MySetOfCuts/MuPt25/wplus/FinerBins/MoreHistos/withRoch_withSF/";
-    }
-  }
-  if(systematics != 0){
-    directory = "/afs/cern.ch/work/b/bsutar/private/NEWWJETS/WJETS/CMSSW_5_3_11/src/Results/HistoFiles/wplus/Systematics/collective/";
-  }
+  
   // T
   cout << "T\t" << syst << "\tQCD:" << doQCD << "\tBJets:" << doBJets << endl;
 
