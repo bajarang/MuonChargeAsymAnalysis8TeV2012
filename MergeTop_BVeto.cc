@@ -93,7 +93,7 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   for(int ii=0; ii<6; ii++){
     fileNameTopChannel[ii] = directory + lepSelection + energy + whichTopChannel[ii] + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
     cout << "Merging following files : " << endl;
-    cout << ii << " - " << fileNameTopChannel[ii] << endl;
+    cout << ii+1 << " - " << fileNameTopChannel[ii] << endl;
   }
   cout << "into this file : " << endl; 
   fileNameFinalTop         = directory + lepSelection + energy + "Top_" + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
@@ -106,10 +106,9 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   }
   TFile *finalTopTFile = new TFile(fileNameFinalTop.c_str(), "RECREATE");
 
-  int nHist = topTFile[0]->GetListOfKeys()->GetEntries();   
-  cout << nHist << endl;
+  int nTopHist = topTFile[0]->GetListOfKeys()->GetEntries();   
   
-  for (int i(0); i < nHist; i++){
+  for (int i(0); i < nTopHist; i++){
     string hName = topTFile[0]->GetListOfKeys()->At(i)->GetName();
     TH1D     *h1 = (TH1D*) topTFile[0]->Get(hName.c_str()); 
     TH1D     *h2 = (TH1D*) topTFile[1]->Get(hName.c_str()); 
@@ -133,39 +132,47 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   }
   
   finalTopTFile->Close();
+ 
+  /////////////////////////////////////////// 
+  // DY //
+  string whichDY[2] ={"DYJets10to50_","DYJets_MIX_UNFOLDING_"};
+  string fileNameDY[2];
+  string fileNameFinalDY;
+
+  for(int ii=0; ii<2; ii++){
+    fileNameDY[ii] = directory + lepSelection + energy + whichDY[ii] + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
+    cout << "Also merging following files : " << endl;
+    cout << ii+1 << " - " << fileNameDY[ii] << endl;
+  }
   
-  // DY
-  cout << "DY\t" << syst << "\t" << doQCD << endl;
-  if(doQCD==0){
-    sstrDY1 = directory+ lepSelection +  "_8TeV_DYJets10to50_dR_5311_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_MET15.root";
-    sstrDY2 = directory+ lepSelection +  "_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_MET15.root";
-    sstrDYf = directory+ lepSelection +  "_8TeV_DYJets10toInf3_dR_5311_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_MET15.root";
-  }
-  else {
-    sstrDY1 = directory+ lepSelection +  "_8TeV_DYJets10to50_dR_5311_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_QCD" + doQCDStr.str() + "_MET15.root";
-    sstrDY2 = directory+ lepSelection +  "_8TeV_DYJets_MIX_UNFOLDING_dR_5311_Inf3_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_QCD" + doQCDStr.str() + "_MET15.root";
-    sstrDYf = directory+ lepSelection +  "_8TeV_DYJets10toInf3_dR_5311_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_QCD" + doQCDStr.str() + "_MET15.root";
-  }
+  cout << "into this file : " << endl; 
+  fileNameFinalDY         = directory + lepSelection + energy + "DYJets10toInf3_" + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
+  cout << fileNameFinalDY << endl << endl;
 
-  TFile *fDY1 = new TFile(sstrDY1.c_str());
-  TFile *fDY2 = new TFile(sstrDY2.c_str());
-  TFile *fDYf = new TFile(sstrDYf.c_str(), "RECREATE");
+  //open TFiles
+  TFile *dyTFile[2];
+  for(int jj=0; jj<2; jj++){
+    dyTFile[jj] = new TFile(fileNameDY[jj].c_str(),"READ");
+  }
+  TFile *finalDYTFile = new TFile(fileNameFinalDY.c_str(), "RECREATE");
 
-  int nDYHist = fDY1->GetListOfKeys()->GetEntries();   
-  cout << nDYHist << endl;
+  int nDYHist = dyTFile[0]->GetListOfKeys()->GetEntries();   
+
   for (int i(0); i < nDYHist; i++){
-    string hDYName = fDY1->GetListOfKeys()->At(i)->GetName();
-    TH1D *hDY1 = (TH1D*) fDY1->Get(hDYName.c_str()); 
-    TH1D *hDY2 = (TH1D*) fDY2->Get(hDYName.c_str()); 
+    string hDYName = dyTFile[0]->GetListOfKeys()->At(i)->GetName();
+    TH1D *hDY1 = (TH1D*) dyTFile[0]->Get(hDYName.c_str()); 
+    TH1D *hDY2 = (TH1D*) dyTFile[1]->Get(hDYName.c_str()); 
 
     TH1D *hDYSum = (TH1D*) hDY1->Clone();
     hDYSum->Add(hDY2);
-    fDYf->cd();
+    finalDYTFile->cd();
     hDYSum->Write();
   }
-  fDY1->Close();
-  fDY2->Close();
-  fDYf->Close();
+
+  for(int kk=0; kk<2; kk++){
+    dyTFile[kk]->Close();
+  }
   
+  finalDYTFile->Close();
 
 }
