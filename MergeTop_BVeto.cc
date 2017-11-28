@@ -38,25 +38,18 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
 
   //systematics
   string syst;
-  if      (systematics ==  0)  syst =       "Syst_0_";
-  else if (systematics ==  1)  syst =    "Syst_1_Up_"; 
-  else if (systematics == -1)  syst =  "Syst_1_Down_"; 
-  else if (systematics ==  2)  syst =    "Syst_2_Up_"; 
-  else if (systematics == -2)  syst =  "Syst_2_Down_"; 
-  else if (systematics ==  3)  syst =    "Syst_3_Up_"; 
-  else if (systematics == -3)  syst =  "Syst_3_Down_"; 
-  else if (systematics ==  4)  syst =    "Syst_4_Up_"; 
-  else if (systematics ==  5)  syst =    "Syst_5_Up_"; 
-  else if (systematics == -5)  syst =  "Syst_5_Down_"; 
-  else if (systematics ==  6)  syst =    "Syst_6_Up_"; 
-  else if (systematics == -6)  syst =  "Syst_6_Down_"; 
-  else if (systematics ==  7)  syst =    "Syst_7_Up_"; 
-  else if (systematics == -7)  syst =  "Syst_7_Down_"; 
-  else if (systematics ==  8)  syst =    "Syst_8_Up_"; 
-  else if (systematics ==  9)  syst =    "Syst_9_Up_"; 
-  else if (systematics ==  10) syst =   "Syst_10_Up_"; 
-  else if (systematics ==  11) syst =   "Syst_11_Up_"; 
-  else if (systematics == -11) syst = "Syst_11_Down_"; 
+  if      (systematics ==  0)  syst =    "Syst_0_";
+  else if (systematics ==  1)  syst =    "Syst_1_"; 
+  else if (systematics ==  2)  syst =    "Syst_2_"; 
+  else if (systematics ==  3)  syst =    "Syst_3_"; 
+  else if (systematics ==  4)  syst =    "Syst_4_"; 
+  else if (systematics ==  5)  syst =    "Syst_5_"; 
+  else if (systematics ==  6)  syst =    "Syst_6_"; 
+  else if (systematics ==  7)  syst =    "Syst_7_"; 
+  else if (systematics ==  8)  syst =    "Syst_8_"; 
+  else if (systematics ==  9)  syst =    "Syst_9_"; 
+  else if (systematics ==  10) syst =   "Syst_10_"; 
+  else if (systematics ==  11) syst =   "Syst_11_"; 
 
   
 
