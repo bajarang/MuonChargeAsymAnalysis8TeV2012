@@ -47,9 +47,6 @@ using namespace std;
 const int NQCD = 4 ;
 
 string energy = getEnergy();
-int JetPtMin(30);
-int JetPtMax(0);
-bool useRoch = false;
 
 //--   Definition ---------------------------------------------------------------------------
 void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPTCutMin, int doBJets, int MET, int mT, string type){
