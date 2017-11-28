@@ -51,9 +51,6 @@ int JetPtMin(30);
 int JetPtMax(0);
 bool useRoch = false;
 
-string systematicsdata = "0";
-string systematicsmc = "0";
-
 //--   Definition ---------------------------------------------------------------------------
 void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPTCutMin, int doBJets, int MET, int mT, string type){
     
