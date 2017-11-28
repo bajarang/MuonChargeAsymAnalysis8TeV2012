@@ -119,9 +119,9 @@ TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, s
   }
 
   //--- update fileName for a bunch of other things ---
-  fileName += leptonFlavor + energy + Name;
-  fileName += "EffiCorr_" + effiCorr + "_TrigCorr_" + trigCorr; 
-  fileName += "_Syst_" + strSystematics + strDirection + "_JetPtMin_" + JetPtMinStr.str();
+  fileName += leptonFlavor + "_" + energy + "_" + Name;
+  fileName += "_" + strCharge +"EffiCorr_" + effiCorr + "_TrigCorr_" + trigCorr; 
+  fileName += "_Syst_" + strSystematics + "_" + strDirection + "JetPtMin_" + JetPtMinStr.str();
   if (JetPtMax != 0 && JetPtMax > JetPtMin)        fileName += "_JetPtMax_" + JetPtMaxStr.str();
   if (doFlat && Name.find("Data") == string::npos) fileName += "_Flat";
   if (closureTest != "")                           fileName += closureTest;
@@ -132,10 +132,10 @@ TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, s
   if (doSSign)                                     fileName += "_SS";
   if (doBJets > 0)                                 fileName += "_BJets";
   if (doBJets < 0)                                 fileName += "_BVeto";
-  if (doQCD > 0)                                   fileName += "_QCD" + strDoQCD;
+  fileName += "_QCD" + strDoQCD;
   if (MET > 0)                                     fileName += "_MET" + strMET;
   if (mT  > 0)                                     fileName += "_mT"  + strmT;
-  fileName += type;
+  fileName += "_" + type;
   //---------------------------------------------------
 
   //--- fileName is complete: just add the extension and open it ---
