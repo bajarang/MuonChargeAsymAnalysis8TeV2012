@@ -54,9 +54,9 @@ void runMergeTop_BVeto(string lepSelection, int systematics, int jetPtCutMin, in
   else if (systematics ==  11) syst =   "Syst_11_Up_"; 
   else if (systematics == -11) syst = "Syst_11_Down_"; 
 
-  string directory = "";
+  string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/";
   
-  // T
+  // 
   cout << "T\t" << syst << "\tQCD:" << doQCD << "\tBJets:" << doBJets << endl;
 
   if(doQCD==0){
