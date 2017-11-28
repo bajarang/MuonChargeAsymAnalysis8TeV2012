@@ -9,16 +9,16 @@ void runMergeTop_BVeto(string lepSelection="SMu_", int charge=0, int systematics
 
 //instance
 void MergeTop_BVeto(){
-  //w+ 
+  ////w+ 
   runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
-  //w-
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0 
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  //runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  //runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  //runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  ////w-
+  //runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0 
+  //runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  //runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  //runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
 }
 
 //definition
@@ -52,10 +52,10 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   else if (systematics == 11)  strSystematics =   "Syst_11_"; 
 
   //direction 
-  string strDirection
-  if (direction == -1)    strDirection = "CN_";
-  else if(direction == 1) strDirection = "UP_";
-  else                    strDirection = "DN_";
+  string strDirection;
+  if     (direction == 0)    strDirection = "CN_";
+  else if(direction == 1)    strDirection = "UP_";
+  else                       strDirection = "DN_";
 
   //jetPtCutMin
   ostringstream strJetPtCutMin; 
@@ -91,16 +91,10 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   string fileNameTopChannel[6];
   string fileNameFinalTop;
   for(int ii=0; ii<6; ii++){
-    string fileNameTopChannel[ii] = directory + lepSelection + energy + whichTopChannel[ii] + "dR_5311_"+ strCharge + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth" + strDoBJets + strDoQCD + "MET" + strMET + "mT" + strmT + type + ".root";
-    cout << fileNameTopChannel[ii] << endl;
+    fileNameTopChannel[ii] = directory + lepSelection + energy + whichTopChannel[ii] + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
+    //cout << ii << "  " << fileNameTopChannel[ii] << endl;
   }
-
-  exit(0);
- 
-
-  /*
-  fileNameFinalTop = directory + lepSelection + energy + whichTopChannel[ii] + "dR_5311_"+ strCharge + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth" + strDoBJets + strDoQCD + "MET" + strMET + "mT" + strmT + type + ".root";
-  string strf = directory + lepSelection + "_8TeV_Top_dR_5311_EffiCorr_1_TrigCorr_1_" + syst + "JetPtMin_" + strJetPtCutMin.str() + str_rochcorr + "_VarWidth" + str_dobjets + "_MET15.root";
+  fileNameFinalTop         = directory + lepSelection + energy + "Top_" + "dR_5311_" + strCharge.str() + "EffiCorr_1_TrigCorr_1_" + strSystematics + strDirection + "JetPtMin_" + strJetPtCutMin.str() + "_VarWidth_" + strDoBJets + "QCD" + strDoQCD + "_MET" + strMET + "_mT" + strmT + "_" + type + ".root";
 
  
   TFile *f1 = new TFile(str1.c_str());
@@ -173,6 +167,6 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   fDY1->Close();
   fDY2->Close();
   fDYf->Close();
-  */
+  
 
 }
