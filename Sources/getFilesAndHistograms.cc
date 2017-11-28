@@ -15,92 +15,135 @@ using namespace std;
 //------------------------------------------------------------
 string getEnergy()
 {
-    string energy = "";
-    ostringstream fileBeingProcessed; fileBeingProcessed << __FILE__;
-    if (fileBeingProcessed.str().find("Analysis2012") != string::npos) {
-        energy = "8TeV";
-    }
-    else if (fileBeingProcessed.str().find("Analysis2011") != string::npos) {
-        energy = "7TeV";
-    }
-    else 
-    {
-        std::cout << "WARNING ! Impossible to retrieve te energy from the current location !" << std::endl;
-        energy = "Unknown";
-    }
-    fileBeingProcessed.str("");
+  string energy = "";
+  ostringstream fileBeingProcessed; fileBeingProcessed << __FILE__;
+  if (fileBeingProcessed.str().find("Analysis2012") != string::npos) {
+    energy = "8TeV";
+  }
+  else if (fileBeingProcessed.str().find("Analysis2011") != string::npos) {
+    energy = "7TeV";
+  }
+  else 
+  {
+    std::cout << "WARNING ! Impossible to retrieve te energy from the current location !" << std::endl;
+    energy = "Unknown";
+  }
+  fileBeingProcessed.str("");
 
-    return energy;
+  return energy;
 }
+
 //------------------------------------------------------------
 //definition
 TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, string Name, int charge, int systematics, int direction, int JetPtMin, int doBJets, int doQCD, int MET, int mT, string type, int JetPtMax, bool doFlat, bool doVarWidth, bool doSSign, bool doInvMassCut, string closureTest, bool useRoch, bool dodR, bool useUnfoldingFiles)
 {
-    
-    string fileName = histoFilesDirectory; // string to contain the name of the file
+  // parse passed arguments
+  // 1. parse histoFilesDirectory  
+  string fileName = histoFilesDirectory; // string to contain the name of the file
 
-    //--- make sure leptonFlavor is short version ---
-    if (leptonFlavor == "Muons" || leptonFlavor == "DMu_") leptonFlavor = "DMu";
-    else if (leptonFlavor == "Electrons" || leptonFlavor == "DE_") leptonFlavor = "DE";
-    else if (leptonFlavor == "Electron" || leptonFlavor == "SE_") leptonFlavor = "SE";
-    else if (leptonFlavor == "Muon" || leptonFlavor == "SMu_") leptonFlavor = "SMu";
-    else if (leptonFlavor == "MuonElectron" || leptonFlavor == "SMuE_") leptonFlavor = "SMuE";
+  // 2. parse leptonFlavor
+  //--- make sure leptonFlavor is short version ---
+  if      (leptonFlavor == "Muons"        || leptonFlavor ==  "DMu_") leptonFlavor =  "DMu";
+  else if (leptonFlavor == "Electrons"    || leptonFlavor ==   "DE_") leptonFlavor =   "DE";
+  else if (leptonFlavor == "Electron"     || leptonFlavor ==   "SE_") leptonFlavor =   "SE";
+  else if (leptonFlavor == "Muon"         || leptonFlavor ==  "SMu_") leptonFlavor =  "SMu";
+  else if (leptonFlavor == "MuonElectron" || leptonFlavor == "SMuE_") leptonFlavor = "SMuE";
+ 
+  // 3. parse charge
+  string strCharge;
+  if(charge==1){
+    strCharge = "WP_";
+  }
+  else {
+    strCharge = "WM_";
+  } 
 
-    fileName += leptonFlavor + "_" + energy + "_" + Name; // update fileName with lepton information
-    //-----------------------------------------------
+  // 4. parse systematics
+  ostringstream strStreamSystematics;
+  strStreamSystematics << systematics;
+  string strSystematics;
+  strSystematics = strStreamSystematics.str();
 
+  // 5. parse direction
+  string strDirection;
+  if     (direction == 0)    strDirection = "CN_";
+  else if(direction == 1)    strDirection = "UP_";
+  else                       strDirection = "DN_";
 
-    //--- make string from numbers ---
-    ostringstream JetPtMinStr; JetPtMinStr << JetPtMin;
-    ostringstream JetPtMaxStr; JetPtMaxStr << JetPtMax;
-    ostringstream doQCDStr; doQCDStr << doQCD;
-    ostringstream METStr; METStr << MET;
-    //--------------------------------
+  // 6. parse JetPTCutMin
+  ostringstream JetPtMinStr; 
+  JetPtMinStr << JetPtMin;
 
-    //--- deal with efficiency correction applied or not ---
-    string effiCorr = "1", trigCorr = "0";
-    if (Name.find("Data") == 0 || energy == "8TeV") trigCorr = "1"; // trigger correction is applied to data and MC at 8TeV but only to data at 7TeV 
-    if (useUnfoldingFiles) { // for cross-section measurement: correct data for efficiencies difference wrt MC
-        if (Name.find("Data") == 0) effiCorr = "1";
-        else effiCorr = "0";
-    }
-    else { // for control plots: correct MC forefficiencies difference wrt Data
-        if (Name.find("Data") == 0) effiCorr = "0";
-        else effiCorr = "1";
-    }
+  // 7. parse doBJets
+  string strDoBJets;
+  if(doBJets == -1)  strDoBJets = "BVeto_";
 
-    //--- special case for the generator comparison ---
-    if (Name.find("Powheg") != string::npos || Name.find("Sherpa") != string::npos) {
-        trigCorr = "0"; 
-        effiCorr = "0";
-    }
-    //-------------------------------------------------
+  // 8. parse doQCD
+  ostringstream strStreamDoQCD;
+  strStreamDoQCD << doQCD ;
+  string strDoQCD;
+  strDoQCD = strStreamDoQCD.str();
 
-    fileName += "_EffiCorr_" + effiCorr + "_TrigCorr_" + trigCorr; // update fileName with efficiency correction information
-    //------------------------------------------------------
+  // 9. parse MET
+  ostringstream strStreamMET;
+  strStreamMET << MET;
+  string strMET;
+  strMET = strStreamMET.str();
 
-    //--- update fileName for a bunch of other things ---
-    fileName += "_Syst_" + syst + "_JetPtMin_" + JetPtMinStr.str();
-    if (JetPtMax != 0 && JetPtMax > JetPtMin) fileName += "_JetPtMax_" + JetPtMaxStr.str();
-    if (doFlat && Name.find("Data") == string::npos) fileName += "_Flat";
-    if (closureTest != "") fileName += closureTest;
-    if (useRoch != false) fileName += "_rochester";
-    if (doVarWidth) fileName += "_VarWidth";
-    if (dodR) fileName += "_dR5";
-    if (doInvMassCut) fileName += "_InvMass";
-    if (doSSign) fileName += "_SS";
-    if (doBJets > 0) fileName += "_BJets";
-    if (doBJets < 0) fileName += "_BVeto";
-    if (doQCD > 0) fileName += "_QCD" + doQCDStr.str();
-    if (MET > 0) fileName += "_MET" + METStr.str();
-    //---------------------------------------------------
+  // 10. parse mT
+  ostringstream strStreammT;
+  strStreammT << mT;
+  string strmT;
+  strmT = strStreammT.str();
 
-    //--- fileName is complete: just add the extension and open it ---
-    fileName += ".root";
-    TFile *File = new TFile(fileName.c_str(), "READ");
-    std::cout << "Opening: " << fileName << "   --->   Opened ? " << File->IsOpen() << std::endl;
-    return File;
-    //----------------------------------------------------------------
+  // 11. parse JetPtMax
+  ostringstream JetPtMaxStr; 
+  JetPtMaxStr << JetPtMax;
+
+  //--- deal with efficiency correction applied or not ---
+  string effiCorr = "1", trigCorr = "0";
+  if (Name.find("Data") == 0 || energy == "8TeV") trigCorr = "1"; // trigger correction is applied to data and MC at 8TeV but only to data at 7TeV 
+  if (useUnfoldingFiles) { // for cross-section measurement: correct data for efficiencies difference wrt MC
+    if (Name.find("Data") == 0) effiCorr = "1";
+    else effiCorr = "0";
+  }
+  else { // for control plots: correct MC for efficiencies difference wrt Data
+    if (Name.find("Data") == 0) effiCorr = "0";
+    else effiCorr = "1";
+  }
+
+  //--- special case for the generator comparison ---
+  if (Name.find("Powheg") != string::npos || Name.find("Sherpa") != string::npos) {
+    trigCorr = "0"; 
+    effiCorr = "0";
+  }
+
+  //--- update fileName for a bunch of other things ---
+  fileName += leptonFlavor + energy + Name;
+  fileName += "EffiCorr_" + effiCorr + "_TrigCorr_" + trigCorr; 
+  fileName += "_Syst_" + strSystematics + strDirection + "_JetPtMin_" + JetPtMinStr.str();
+  if (JetPtMax != 0 && JetPtMax > JetPtMin)        fileName += "_JetPtMax_" + JetPtMaxStr.str();
+  if (doFlat && Name.find("Data") == string::npos) fileName += "_Flat";
+  if (closureTest != "")                           fileName += closureTest;
+  if (useRoch != false)                            fileName += "_rochester";
+  if (doVarWidth)                                  fileName += "_VarWidth";
+  if (dodR)                                        fileName += "_dR5";
+  if (doInvMassCut)                                fileName += "_InvMass";
+  if (doSSign)                                     fileName += "_SS";
+  if (doBJets > 0)                                 fileName += "_BJets";
+  if (doBJets < 0)                                 fileName += "_BVeto";
+  if (doQCD > 0)                                   fileName += "_QCD" + strDoQCD;
+  if (MET > 0)                                     fileName += "_MET" + strMET;
+  if (mT  > 0)                                     fileName += "_mT"  + strmT;
+  fileName += type;
+  //---------------------------------------------------
+
+  //--- fileName is complete: just add the extension and open it ---
+  fileName += ".root";
+  TFile *File = new TFile(fileName.c_str(), "READ");
+  std::cout << "Opening: " << fileName << "   --->   Opened ? " << File->IsOpen() << std::endl;
+  return File;
+  //----------------------------------------------------------------
 }
 
 void getFiles(string histoFilesDirectory, TFile *Files[], string leptonFlavor, string energy, string Name, int JetPtMin, int JetPtMax, bool doFlat, bool doVarWidth, int doQCD, bool doSSign, bool doInvMassCut, int MET, int doBJets, bool useUnfoldingFiles)
