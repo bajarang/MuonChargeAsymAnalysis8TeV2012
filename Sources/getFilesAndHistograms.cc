@@ -146,54 +146,56 @@ TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, s
   //----------------------------------------------------------------
 }
 
+/*
 void getFiles(string histoFilesDirectory, TFile *Files[], string leptonFlavor, string energy, string Name, int JetPtMin, int JetPtMax, bool doFlat, bool doVarWidth, int doQCD, bool doSSign, bool doInvMassCut, int MET, int doBJets, bool useUnfoldingFiles)
 {
 
-    //--- make sure leptonFlavor is short version ---
-    if (leptonFlavor == "Muons" || leptonFlavor == "DMu_") leptonFlavor = "DMu";
-    else if (leptonFlavor == "Electrons" || leptonFlavor == "DE_") leptonFlavor = "DE";
-    else if (leptonFlavor == "Electron" || leptonFlavor == "SE_") leptonFlavor = "SE";
-    else if (leptonFlavor == "Muon" || leptonFlavor == "SMu_") leptonFlavor = "SMu";
-    else if (leptonFlavor == "MuonElectron" || leptonFlavor == "SMuE_") leptonFlavor = "SMuE";
-    //-----------------------------------------------
+  //--- make sure leptonFlavor is short version ---
+  if (leptonFlavor == "Muons" || leptonFlavor == "DMu_") leptonFlavor = "DMu";
+  else if (leptonFlavor == "Electrons" || leptonFlavor == "DE_") leptonFlavor = "DE";
+  else if (leptonFlavor == "Electron" || leptonFlavor == "SE_") leptonFlavor = "SE";
+  else if (leptonFlavor == "Muon" || leptonFlavor == "SMu_") leptonFlavor = "SMu";
+  else if (leptonFlavor == "MuonElectron" || leptonFlavor == "SMuE_") leptonFlavor = "SMuE";
+  //-----------------------------------------------
 
-    //--- set the double lepton flag ---
-    bool isDoubleLep(0);
-    if (leptonFlavor == "DMu" || leptonFlavor == "DE") isDoubleLep = 1;
-    //----------------------------------
+  //--- set the double lepton flag ---
+  bool isDoubleLep(0);
+  if (leptonFlavor == "DMu" || leptonFlavor == "DE") isDoubleLep = 1;
+  //----------------------------------
 
-    vector<string> Syst;
-    if ((Name.find("Data") != string::npos) && (Name.find("QCD") == string::npos)) { // for data we have:
-        Syst.push_back("0");                 //   0: central
-        Syst.push_back("2_Up");              //   2 up: JES up
-        Syst.push_back("2_Down");            //   2 down: JES down
-        if (leptonFlavor == "DE") {          // additionaly for electron:
-            Syst.push_back("5_Up");          //   5 up: scale factor up
-            Syst.push_back("5_Down");        //   5 down: scale factor down
-        }
+  vector<string> Syst;
+  if ((Name.find("Data") != string::npos) && (Name.find("QCD") == string::npos)) { // for data we have:
+    Syst.push_back("0");                 //   0: central
+    Syst.push_back("2_Up");              //   2 up: JES up
+    Syst.push_back("2_Down");            //   2 down: JES down
+    if (leptonFlavor == "DE") {          // additionaly for electron:
+      Syst.push_back("5_Up");          //   5 up: scale factor up
+      Syst.push_back("5_Down");        //   5 down: scale factor down
     }
-    else if (Name.find("UNFOLDING") != string::npos && ((isDoubleLep && Name.find("DYJets") != string::npos) || (!isDoubleLep && Name.find("WJets") != string::npos))) {
-        // for DYJets in case of Z+Jets or for WJets in case of W+Jets analysis we have:
-        Syst.push_back("0");         // 0: central
-        Syst.push_back("1_Up");      // 1 up: PU up
-        Syst.push_back("1_Down");    // 1 down: PU down
-        Syst.push_back("4_Up");      // 4 up: JER up
-    }
-    else { // for background we have
-        Syst.push_back("0");         // 0: central
-        Syst.push_back("1_Up");      // 1 up: PU up
-        Syst.push_back("1_Down");    // 1 down: PU down
-        Syst.push_back("3_Up");      // 3 up: XSec up
-        Syst.push_back("3_Down");    // 3 down: Xsec down
-    };
+  }
+  else if (Name.find("UNFOLDING") != string::npos && ((isDoubleLep && Name.find("DYJets") != string::npos) || (!isDoubleLep && Name.find("WJets") != string::npos))) {
+    // for DYJets in case of Z+Jets or for WJets in case of W+Jets analysis we have:
+    Syst.push_back("0");         // 0: central
+    Syst.push_back("1_Up");      // 1 up: PU up
+    Syst.push_back("1_Down");    // 1 down: PU down
+    Syst.push_back("4_Up");      // 4 up: JER up
+  }
+  else { // for background we have
+    Syst.push_back("0");         // 0: central
+    Syst.push_back("1_Up");      // 1 up: PU up
+    Syst.push_back("1_Down");    // 1 down: PU down
+    Syst.push_back("3_Up");      // 3 up: XSec up
+    Syst.push_back("3_Down");    // 3 down: Xsec down
+  };
 
-    //--- determnie how many files we have and open them all ---
-    int nSyst(Syst.size());
-    for (int i(0); i < nSyst; i++) {
-        Files[i] = getFile(histoFilesDirectory, leptonFlavor, energy, Name, JetPtMin, JetPtMax, doFlat, doVarWidth, doQCD, doSSign, doInvMassCut, MET, doBJets, "", Syst[i], false, useUnfoldingFiles);
-    }
-    //----------------------------------------------------------
+  //--- determnie how many files we have and open them all ---
+  int nSyst(Syst.size());
+  for (int i(0); i < nSyst; i++) {
+    Files[i] = getFile(histoFilesDirectory, leptonFlavor, energy, Name, JetPtMin, JetPtMax, doFlat, doVarWidth, doQCD, doSSign, doInvMassCut, MET, doBJets, "", Syst[i], false, useUnfoldingFiles);
+  }
+  //----------------------------------------------------------
 }
+*/
 
 //------------------------------------------------------------
 // Close the file if open and delete the pointer
