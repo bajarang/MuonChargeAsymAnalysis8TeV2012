@@ -15,7 +15,7 @@
 
     //Old - DataDrivenQCD("SMu",15,-1);
     //New 
-    // ArgList : lepFlavor, charge, systematics, direction, jetPtCutMin, doBJets, MET, mT
+    // ArgList : 8 arguments - lepFlavor, charge, systematics, direction, jetPtCutMin, doBJets, MET, mT
     //w+
     DataDrivenQCD("SMu",  1, 0, 0, 30, -1, 15, 50, "Merge"); //systematics = 0 
     ////DataDrivenQCD("SMu",  1, 1,  1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction =  1
