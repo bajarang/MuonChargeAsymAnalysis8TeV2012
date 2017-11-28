@@ -5,7 +5,7 @@
 #include <sstream>
 
 //declaration
-void runMergeTop_BVeto(string lepSelection = "DE", int systematics =0  , int jetPtCutMin = 30 , int doQCD = 0 , int doBJets = 0, int rochcorr = 0);
+void runMergeTop_BVeto(string lepSelection="SMu", int charge=0, int systematics=0, int direction=0, int jetPtCutMin = 30, int doBJets=0, int doQCD = 0, double MET=0, double mT=0, string type="Merge");
 
 //instance
 void MergeTop_BVeto(){
