@@ -22,7 +22,7 @@ void MergeTop_BVeto(){
 }
 
 //definition
-void runMergeTop_BVeto(string lepSelection, int systematics, int jetPtCutMin, int doQCD, int doBJets, int rochcorr){
+void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int direction, int jetPtCutMin, int doBJets, int doQCD, double MET, double mT, string type){
 
   TH1::SetDefaultSumw2();
   TH2::SetDefaultSumw2();
