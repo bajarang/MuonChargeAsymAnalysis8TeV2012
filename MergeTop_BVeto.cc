@@ -36,16 +36,7 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
     strCharge << "WM";
   }
 
-  ostringstream strJetPtCutMin; 
-  strJetPtCutMin << jetPtCutMin;
-  ostringstream doQCDStr;     
-  doQCDStr << doQCD ;
-
-  string str_dobjets = "";
-  if(doBJets == 1)  str_dobjets = "_BVeto";
-  string str_rochcorr = "";
-  if(rochcorr == 1) str_rochcorr = "_rochester";
-
+  //systematics
   string syst;
   if      (systematics ==  0)  syst =       "Syst_0_";
   else if (systematics ==  1)  syst =    "Syst_1_Up_"; 
@@ -66,6 +57,16 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   else if (systematics ==  10) syst =   "Syst_10_Up_"; 
   else if (systematics ==  11) syst =   "Syst_11_Up_"; 
   else if (systematics == -11) syst = "Syst_11_Down_"; 
+
+  
+
+  ostringstream strJetPtCutMin; 
+  strJetPtCutMin << jetPtCutMin;
+  ostringstream doQCDStr;     
+  doQCDStr << doQCD ;
+
+  string str_dobjets = "";
+  if(doBJets == 1)  str_dobjets = "_BVeto";
 
   string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/";
   
