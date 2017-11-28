@@ -56,7 +56,7 @@ void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int directi
   TFile *fData[NQCD] = {NULL};
   TFile *fMC[NQCD][NFILESWJETS] = {{NULL}};
   
-  FuncOpenAllFiles(fData, fMC, leptonFlavor, charge, systematics, direction, JetPtCutMin, doBJets, MET, mT, type); //instance (11 arguments passed)
+  FuncOpenAllFiles(fData, fMC, leptonFlavor, charge, systematics, direction, JetPtCutMin, doBJets, MET, mT, type, false, true); //instance (13 arguments passed)
   vector<string> histoNameRun = getVectorOfHistoNames(fData);
   
   string nameQCDout = fData[0]->GetName();
@@ -88,28 +88,28 @@ void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int directi
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int METcut, bool doFlat , bool doVarWidth, int doBJets, string syst){
-    // Get data files
-    syst = systematicsdata; 
-    for ( int i = 0 ; i < NQCD ; i++){
-        fData[i] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i, 0, 0, METcut, doBJets, "", syst, useRoch);
-    }
-    /// get MC files
-    syst = systematicsmc;
-    for ( int i=0 ; i < NQCD ; i++){
-        cout << endl;
-        for ( int j = 1 ; j < NFILESWJETS ; j++){
-            int sel = j ;
-            if ( j == 1 ) sel = 24 ;
-            cout << endl;
-            fMC[i][j] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[sel].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i , 0, 0, METcut, doBJets, "", syst, useRoch);
-            TH1D *hTemp2 = getHisto(fMC[i][j], "ZNGoodJets_Zexc");
-            cout << " going to fetch " << ProcessInfo[sel].filename << "   " << hTemp2 ->Integral()<<endl;
-        }
-    }
+//void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int METcut, bool doFlat , bool doVarWidth, int doBJets, string syst){
+void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int charge, int systematics, int direction, int JetPtCutMin, int doBJets, int MET, int mT, string type, bool doFlat, bool doVarWidth){
+  // Get data files
+  syst = systematicsdata; 
+  for ( int i = 0 ; i < NQCD ; i++){
+    fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i, 0, 0, METcut, doBJets, "", syst, useRoch);
+  }
+  /// get MC files
+  syst = systematicsmc;
+  for ( int i=0 ; i < NQCD ; i++){
     cout << endl;
-    cout << "--- opened all data and MC files ---"<< endl;
+    for ( int j = 1 ; j < NFILESWJETS ; j++){
+      int sel = j ;
+      if ( j == 1 ) sel = 24 ;
+      cout << endl;
+      fMC[i][j] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[sel].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i , 0, 0, METcut, doBJets, "", syst, useRoch);
+      TH1D *hTemp2 = getHisto(fMC[i][j], "ZNGoodJets_Zexc");
+      cout << " going to fetch " << ProcessInfo[sel].filename << "   " << hTemp2 ->Integral()<<endl;
+    }
+  }
+  cout << endl;
+  cout << "--- opened all data and MC files ---"<< endl;
 }
 
 vector<string> getVectorOfHistoNames(TFile *fData[]){
