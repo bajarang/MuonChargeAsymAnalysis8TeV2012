@@ -9,12 +9,16 @@ void runMergeTop_BVeto(string lepSelection="SMu", int charge=0, int systematics=
 
 //instance
 void MergeTop_BVeto(){
-   
-  runMergeTop_BVeto("SMu",0,30,0,1,0);
-  runMergeTop_BVeto("SMu",0,30,1,1,0);
-  runMergeTop_BVeto("SMu",0,30,2,1,0);
-  runMergeTop_BVeto("SMu",0,30,3,1,0);
-
+  //w+ 
+  runMergeTop_BVeto("SMu",  1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  runMergeTop_BVeto("SMu",  1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu",  1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu",  1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  //w-
+  runMergeTop_BVeto("SMu", -1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0 
+  runMergeTop_BVeto("SMu", -1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu", -1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu", -1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
 }
 
 //definition
