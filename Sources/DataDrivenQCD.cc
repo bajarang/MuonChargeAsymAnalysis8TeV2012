@@ -49,19 +49,30 @@ const int NQCD = 4 ;
 string energy = getEnergy();
 
 //--   Definition (9 arguments passed)---------------------------------------------------------------------------
-void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPTCutMin, int doBJets, int MET, int mT, string type){
+void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int direction, int JetPtCutMin, int doBJets, int MET, int mT, string type){
     
+  // parse systematics
+  ostringstream strStreamSystematics;
+  strStreamSystematics << systematics;
+  string strSystematics; 
+  strSystematics = strStreamSystematics.str();
+
+  // parse direction
+  string strDirection;
+  if     (direction == 0)    strDirection = "CN_";
+  else if(direction == 1)    strDirection = "UP_";
+  else                       strDirection = "DN_";
+
   TH1::SetDefaultSumw2();
   
   TFile *fData[NQCD] = {NULL};
   TFile *fMC[NQCD][NFILESWJETS] = {{NULL}};
   
-  FuncOpenAllFiles(fData, fMC, leptonFlavor, charge, systematics, direction, JetPtCutMin, doBJets, MET, mT, type, false, true); //instance (13 arguments passed)
+  FuncOpenAllFiles(fData, fMC, leptonFlavor, charge, systematics, direction, JetPtCutMin, doBJets, MET, mT, type); //instance (11 arguments passed)
   vector<string> histoNameRun = getVectorOfHistoNames(fData);
   
   string nameQCDout = fData[0]->GetName();
-  //nameQCDout.insert(nameQCDout.find("Data") + 4,"QCD");
-  nameQCDout.insert(nameQCDout.find("_Data") + 5,"QCD");
+  nameQCDout.insert(nameQCDout.find("_Data") + 5,"QCD"); 
   size_t found;
   found = nameQCDout.find("Syst_0");
   nameQCDout.replace(int(found),6,"Syst_" + systematicsmc);
@@ -89,8 +100,9 @@ void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int directi
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int METcut, bool doFlat , bool doVarWidth, int doBJets, string syst){
-void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int charge, int systematics, int direction, int JetPtCutMin, int doBJets, int MET, int mT, string type, bool doFlat, bool doVarWidth){
-  // Get data files
+void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor, int charge, int systematics, int direction, int JetPtCutMin, int doBJets, int MET, int mT, string type){
+  // parse arguments
+  // 1. systematics
   ostringstream strStreamSystematics;
   strStreamSystematics << systematics;
   string systematicsdata; 
@@ -105,9 +117,12 @@ void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int 
     systematicsmc=strStreamSystematics.str();
   }
 
+  // Get data files
   for ( int i = 0 ; i < NQCD ; i++){
-    fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i, 0, 0, METcut, doBJets, "", systematicsdata, useRoch);
+    fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, charge, systematics, direction, JetPtCutMin, doBJets, i, MET, mT, type);
   }
+  exit(0);
+
   /// get MC files
   syst = systematicsmc;
   for ( int i=0 ; i < NQCD ; i++){
@@ -116,7 +131,7 @@ void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor,int 
       int sel = j ;
       if ( j == 1 ) sel = 24 ;
       cout << endl;
-      fMC[i][j] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[sel].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, i , 0, 0, METcut, doBJets, "", systematicsmc, useRoch);
+      fMC[i][j] = getFile(FILESDIRECTORY,  leptonFlavor, energy, ProcessInfo[sel].filename, charge, systematics, direction, JetPtCutMin, doBJets, i, MET, mT, type);
       TH1D *hTemp2 = getHisto(fMC[i][j], "ZNGoodJets_Zexc");
       cout << " going to fetch " << ProcessInfo[sel].filename << "   " << hTemp2 ->Integral()<<endl;
     }
