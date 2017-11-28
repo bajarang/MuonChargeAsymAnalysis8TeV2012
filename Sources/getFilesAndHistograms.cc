@@ -245,7 +245,7 @@ void getResps(RooUnfoldResponse *responses[], TFile *Files[], string variable)
     } 
 }
 
-
+/*
 void getStatistics(string leptonFlavor, int JetPtMin, int JetPtMax, bool doFlat, bool doVarWidth, int doQCD, bool doSSign, bool doInvMassCut, int MET, int doBJets)
 {
     //std::string  variable = "ZNGoodJets_Zexc";
@@ -340,6 +340,7 @@ void getStatistics(string leptonFlavor, int JetPtMin, int JetPtMax, bool doFlat,
     fprintf( outFile, "\\end{tabular}}");
     fclose(outFile);
 }
+*/
 
 
 
