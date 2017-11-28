@@ -33,8 +33,8 @@ string getEnergy()
     return energy;
 }
 //------------------------------------------------------------
-
-TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, string Name, int JetPtMin, int JetPtMax, bool doFlat, bool doVarWidth, int doQCD, bool doSSign, bool doInvMassCut, int MET, int doBJets, string closureTest, string syst, bool useRoch, bool dodR, bool useUnfoldingFiles)
+//definition
+TFile* getFile(string histoFilesDirectory, string leptonFlavor, string energy, string Name, int charge, int systematics, int direction, int JetPtMin, int doBJets, int doQCD, int MET, int mT, string type, int JetPtMax, bool doFlat, bool doVarWidth, bool doSSign, bool doInvMassCut, string closureTest, bool useRoch, bool dodR, bool useUnfoldingFiles)
 {
     
     string fileName = histoFilesDirectory; // string to contain the name of the file
