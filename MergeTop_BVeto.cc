@@ -5,7 +5,7 @@
 #include <sstream>
 
 //declaration
-void runMergeTop_BVeto(string lepSelection="SMu", int charge=0, int systematics=0, int direction=0, int jetPtCutMin = 30, int doBJets=0, int doQCD = 0, double MET=0, double mT=0, string type="Merge");
+void runMergeTop_BVeto(string lepSelection="SMu", int charge=0, int systematics=0, int direction=0, int jetPtCutMin = 30, int doBJets=0, int doQCD = 0, int MET=0, int mT=0, string type="Merge");
 
 //instance
 void MergeTop_BVeto(){
@@ -22,7 +22,7 @@ void MergeTop_BVeto(){
 }
 
 //definition
-void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int direction, int jetPtCutMin, int doBJets, int doQCD, double MET, double mT, string type){
+void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int direction, int jetPtCutMin, int doBJets, int doQCD, int MET, int mT, string type){
 
   TH1::SetDefaultSumw2();
   TH2::SetDefaultSumw2();
@@ -70,6 +70,18 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   strStreamDoQCD << doQCD ;
   string strDoQCD;
   strDoQCD = strStreamDoQCD.str();
+
+  //MET
+  ostringstream strStreamMET;
+  strStreamMET << MET;
+  string strMET;
+  strMET = strStreamMET.str();  
+
+  //mT
+  ostringstream strStreammT;
+  strStreammT << mT;
+  string strmT;
+  strmT = strStreammT.str();  
 
   string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/";
   
