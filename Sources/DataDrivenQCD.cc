@@ -78,7 +78,6 @@ void DataDrivenQCD(string leptonFlavor, int charge, int systematics, int directi
   nameQCDout.replace(int(found),6,"Syst_" + strSystematics);
   TFile *fOut = new TFile(nameQCDout.c_str(), "recreate");
   
-  
   for (int i(0); i < int(histoNameRun.size()) ; i++){
     cout << endl; cout << endl;
     cout << " --- processing histogram: " << i << " : " << histoNameRun[i] << endl;
@@ -121,7 +120,6 @@ void FuncOpenAllFiles(TFile *fData[], TFile *fMC[][14], string leptonFlavor, int
   for ( int i = 0 ; i < NQCD ; i++){
     fData[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[DATAFILENAME].filename, charge, systematics, direction, doBJets, i, MET, mT, type);
   }
-  exit(0);
 
   /// get MC files
   for ( int i=0 ; i < NQCD ; i++){
