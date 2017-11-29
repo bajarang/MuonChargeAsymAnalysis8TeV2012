@@ -162,7 +162,7 @@ void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,strin
                            // 1  - Up direction
                            // 0  - No direction
                            // -1 - Down direction
-      
+                           // 100 - Both the respective directions 
   int doBJets      = -1;
                           // 0 - no infor on B-jets will be used ;
                           // 1, 2 .. require at least 1, 2, .. ; use 2 for ttbar systmatics;
@@ -180,18 +180,18 @@ void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,strin
   else if (lepSelection == "SMu")  muLumi = 19.244;
   else if (lepSelection == "SE")   muLumi = 19.174;
       
-  bool doRoch       =    0;
-  bool doFlat       =    0;
-  int  doPUStudy    =  -10;  // default int the ZJets -10
-  bool doSSign      =    0;     // contribution of QCD to emu in TTbar 0
-  bool doInvMassCut =    0;
-  bool doDataEff    =    0;  
+  bool doRoch       =       0;
+  bool doFlat       =       0;
+  int  doPUStudy    =     -10;  // default int the ZJets -10
+  bool doSSign      =       0;  // contribution of QCD to emu in TTbar 0
+  bool doInvMassCut =       0;
+  bool doDataEff    =       0;  
       
-  int doMETcut      =    0;     // if you want to apply MET cut  0
-  int jetPtMin      =   30;           //30
-  int jetPtMax      =    0;      // 0 - for no jetPtMax cut
-  int ZPtMin        =    0;   //0
-  int ZEtaMin       = -999999; //default value -999999  !!!!!!!  factor 100 to keep things integer .... eta 2.4  = eta Cut 240
+  int doMETcut      =       0;  // if you want to apply MET cut  0
+  int jetPtMin      =      30;  //30
+  int jetPtMax      =       0;  // 0 - for no jetPtMax cut
+  int ZPtMin        =       0;  //0
+  int ZEtaMin       = -999999;  //default value -999999  !!!!!!!  factor 100 to keep things integer .... eta 2.4  = eta Cut 240
   int ZEtaMax       =  999999; //default value  999999
 
   const int NSystData(3), NSystMC(12); // set NSystMC to 5 if you want to do only PU, XSEC
