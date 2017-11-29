@@ -103,6 +103,9 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   TFile *topTFile[6];
   for(int jj=0; jj<6; jj++){
     topTFile[jj] = new TFile(fileNameTopChannel[jj].c_str(),"READ");
+    if(!topTFile[jj]) {
+      cout << "Error opening file : " << fileNameTopChannel[jj] << endl; 
+    }
   }
   TFile *finalTopTFile = new TFile(fileNameFinalTop.c_str(), "RECREATE");
 
@@ -153,6 +156,9 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   TFile *dyTFile[2];
   for(int jj=0; jj<2; jj++){
     dyTFile[jj] = new TFile(fileNameDY[jj].c_str(),"READ");
+    if(!dyTFile[jj]) {
+      cout << "Error opening file : " << fileNameDY[jj] << endl; 
+    }
   }
   TFile *finalDYTFile = new TFile(fileNameFinalDY.c_str(), "RECREATE");
 
