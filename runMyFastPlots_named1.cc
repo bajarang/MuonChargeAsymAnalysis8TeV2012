@@ -18,7 +18,7 @@ void runMyFastPlots_named1(string strWCharge, string strVariable, string strRang
       //gROOT->LoadMacro(string(srcdir + sources[i] + ".cc++").c_str());
   }
 
-  myFastPlots(strWCharge, strVariable, strRange, strClosureTest, strSystematics, strDirection);   
+  myFastPlots("SMu",strWCharge, strVariable, strRange, strClosureTest, strSystematics, strDirection);   
  
   //--- clean the *_cc.d and *_cc.so files ---
   string cmd = "if ls *_cc.d &> .ls_tmp.list; then rm *_cc.d; fi";
