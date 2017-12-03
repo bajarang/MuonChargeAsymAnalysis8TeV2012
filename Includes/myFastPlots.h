@@ -4,9 +4,9 @@
 using namespace std;
 
 //void myFastPlots(string leptonFlavor = "DE", string var = "", bool closureTest = false);
-void myFastPlots(string leptonFlavor = "DE", string strWCharge, string strVariable, string strRange, string strClosureTest, string strSystematics, string strDirection);
+void myFastPlots(string leptonFlavor = "DE", string strWCharge = "1", string strVariable = "", string strClosureTest = "1", string strSystematics = "0", string strDirection = "0", string strRange = "");
 
-void FastPlotsRun(const int *sel, int nsel, string leptonFlavor, string variable, bool logZ, bool decrease, int SVDkterm, int Bayeskterm, bool closureTest = 0, int JetPtMin = 30, int JetPtMax = 0, bool doFlat = 0, bool doVarWidth = 1);
+void FastPlotsRun(const int *sel, int nsel, string strWCharge, string strSystematics, string stdDirection, string leptonFlavor, string variable, bool logZ, bool decrease, int SVDkterm, int Bayeskterm, bool closureTest = 0, int JetPtMin = 30, int JetPtMax = 0, bool doFlat = 0, bool doVarWidth = 1);
 
 
 void myplotSelectedMethod2(string method, RooUnfoldResponse *response, TH1D *genMad, int kterm, TH1D *hData, TH1D *hBG[], int nBG, string leptonFlavor, string variable, bool logZ, bool decrease, string outputDirectory, TFile *outputRootFile, bool closureTest = false, bool save = true);
