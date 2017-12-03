@@ -1,4 +1,4 @@
-void runMyFastPlots_named1(string strWCharge, string strVariable, string strRange, string strClosureTest, string strSystematics, string strDirection){
+void runMyFastPlots_named1(string strWCharge, string strVariable, string strClosureTest, string strSystematics, string strDirection, string strRange){
 
   string srcdir = "Sources/";
 
@@ -18,7 +18,9 @@ void runMyFastPlots_named1(string strWCharge, string strVariable, string strRang
       //gROOT->LoadMacro(string(srcdir + sources[i] + ".cc++").c_str());
   }
 
-  myFastPlots("SMu",strWCharge, strVariable, strRange, strClosureTest, strSystematics, strDirection);   
+  if(strRange=="25_above") strRange="";
+
+  myFastPlots("SMu", strWCharge, strVariable, strClosureTest, strSystematics, strDirection, strRange);   
  
   //--- clean the *_cc.d and *_cc.so files ---
   string cmd = "if ls *_cc.d &> .ls_tmp.list; then rm *_cc.d; fi";
