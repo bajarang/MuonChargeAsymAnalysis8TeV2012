@@ -53,7 +53,8 @@ void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,strin
     exit(0);
   }
 
-  if(intLineNum > 928){
+  //if(intLineNum > 928){
+  if(intLineNum > 102){
     cout << "You entered Line Number = " << intLineNum << endl;
     cout << "It should be lesser than 35 " << endl;
     cout << "Exiting Now." << endl;
@@ -105,7 +106,8 @@ void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,strin
   string strDOWHAT, strCI, strTotEvents, strEvents, strPartition, strCurretPar, strFileName;
   string strDOWHATofInterest, strCIofInterest, strTotEventsofInterest, strEventsofInterest, strPartitionofInterest, strCurretParofInterest, strFileNameofInterest;
 
-  for(int k=1; k<=928; k++){
+  //for(int k=1; k<=928; k++){
+  for(int k=1; k<=102; k++){
     inputFile >> strDOWHAT >> strCI >> strTotEvents >> strEvents >> strPartition >> strCurretPar >> strFileName;
     if(k==intLineNum){
       strDOWHATofInterest    = strDOWHAT;
