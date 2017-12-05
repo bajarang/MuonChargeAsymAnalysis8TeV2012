@@ -1,3 +1,10 @@
+/*
+ * This program adds 6 top files into 1 
+ * and also 2 DY files into 1
+ * added files are stored in the same directory where the input files are
+ * Run this code with : $ root -b -q MergeTop_BVeto.cc
+ */
+
 #include <iostream>
 #include <TH1.h>
 #include <TH2.h>
@@ -83,7 +90,7 @@ void runMergeTop_BVeto(string lepSelection, int charge, int systematics, int dir
   string strmT;
   strmT = strStreammT.str();  
 
-  string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/";
+  string directory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/102/";
   
   //create filenames
   string energy = "8TeV_";
