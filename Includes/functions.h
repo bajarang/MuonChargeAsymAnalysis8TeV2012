@@ -6,7 +6,6 @@
 #include <vector>
 #include <TLorentzVector.h>
 #include <RooUnfoldResponse.h>
-
 using namespace std;
 
 void barre_de_progression(int);
