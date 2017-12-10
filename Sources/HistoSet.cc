@@ -330,7 +330,7 @@ HistoSet::HistoSet(string leptonFlavor)
     cutFlow->GetXaxis()->SetBinLabel(6,"MET+mT");
     cutFlow->GetXaxis()->SetBinLabel(7,"BJets");
     //***************************** END   CUTFLOW *****************************//
-    nEntriesHisto = newTH1D("nentries","nentries","",1,0,1);
+    nEntriesHisto = newTH1D("nEntriesHisto","nentries","",2,0,2);
     nEntriesHisto->GetYaxis()->SetTitle("nentries"); 
 
     //***************************** Basic plots for Wjets *****************************//
