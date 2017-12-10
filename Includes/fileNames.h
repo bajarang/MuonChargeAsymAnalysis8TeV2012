@@ -3,7 +3,7 @@
 
 //-- directory of input root files --------------------
 //const string FILESDIRECTORY("HistoFiles/");
-const string FILESDIRECTORY("/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/");
+const string FILESDIRECTORY("/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/HistoFiles/Condor/102/");
 //---------- lets add basic information on samples inot common struct -------------------------------------------
 struct processInfoStruct{
     string filename;
