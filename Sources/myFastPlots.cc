@@ -161,7 +161,7 @@ void FastPlotsRun(const int *sel, int nsel, string strWCharge, string strSystema
     string outputDirectory = "";
 
     //leppt
-    outputDirectory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/PNGFiles/Condor/FastPlots_" + myStrWCharge + "_Syst_" + strSystematics + "_" + myStrDirection + "_" + variable + "_JetPt_" + jetPtMin.str();
+    outputDirectory = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/PNGFiles/Condor/102/FastPlots_" + myStrWCharge + "_Syst_" + strSystematics + "_" + myStrDirection + "_" + variable + "_JetPt_" + jetPtMin.str();
     if (doVarWidth)  outputDirectory+= "_VarWidth";
     string command = "mkdir -p " + outputDirectory;
     system(command.c_str());
@@ -180,10 +180,29 @@ void FastPlotsRun(const int *sel, int nsel, string strWCharge, string strSystema
 
     //-- get data histogram (or MC Even for closure test) ----------------------------
     TFile *DataFile = NULL;
+
+    int systematicsdata; 
+    int systematicsmc;
+    int directiondata;
+    int directionmc;
+
+    if(systematics==2){
+      systematicsdata=systematics;
+      directiondata=direction;
+      systematicsmc=0;
+      directionmc=0;
+    }
+    else {
+      systematicsdata=0;
+      directiondata=0;
+      systematicsmc=systematics;
+      directionmc=direction;
+    }
+
     ////if (!closureTest) DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[0]].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, 0, 0, 0, 15, -1, "", systematicsdata, false, false, 0);
-    if (!closureTest) DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[0]].filename, charge, systematics, direction, -1, 0, 15, 50, "Merge");
+    if (!closureTest) DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[0]].filename, charge, systematicsdata, directiondata, -1, 0, 15, 50, "Merge");
     ////else DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, 0, 0, 0, 15, -1, "", systematicsmc, false, false, 0);
-    else DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematics, direction, -1, 0, 15, 50, "Merge");
+    else DataFile = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematicsdata, directiondata, -1, 0, 15, 50, "Merge");
 
     TH1D *meas = getHisto(DataFile, variable);
     
@@ -194,7 +213,7 @@ void FastPlotsRun(const int *sel, int nsel, string strWCharge, string strSystema
     TH1D **hBG = new TH1D*[nBG];
     for (int i(0); i < nBG; i++){
         ////BG[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[i+1]].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, 0, 0, 0, 15, -1, "", systematicsmc, false, false, 0);
-        BG[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[i+1]].filename, charge, systematics, direction, -1, 0, 15, 50, "Merge");
+        BG[i] = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[i+1]].filename, charge, systematicsmc, directionmc, -1, 0, 15, 50, "Merge");
         hBG[i] = getHisto(BG[i], variable);
     }
     TH1D *hSumBG = NULL;
@@ -214,9 +233,9 @@ void FastPlotsRun(const int *sel, int nsel, string strWCharge, string strSystema
     //-- get MC madgraph histograms (or MC Odd for closure test) ---------------------
     TFile *DY = NULL;
     ////if (!closureTest) DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, 0, 0, 0, 15, -1, "", systematicsmc, false,false, 0);
-    if (!closureTest) DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematics, direction, -1, 0, 15, 50, "Merge");
+    if (!closureTest) DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematicsmc, directionmc, -1, 0, 15, 50, "Merge");
     ////else DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, JetPtMin, JetPtMax, doFlat, doVarWidth, 0, 0, 0, 15, -1, "", systematicsmc, false, false, 0);
-    else DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematics, direction, -1, 0, 15, 50, "Merge");
+    else DY = getFile(FILESDIRECTORY, leptonFlavor, energy, ProcessInfo[sel[nsel-1]].filename, charge, systematicsmc, directionmc, -1, 0, 15, 50, "Merge");
     TH1D *recoMad = (TH1D*) getHisto(DY, variable);
     
     string genName = "gen" + variable;
@@ -785,7 +804,7 @@ int UnfoldData(string myStrWCharge, string strSystematics, string myStrDirection
     
     
     string unfCheckDir;
-    unfCheckDir = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/PNGFiles/Condor/UnfoldingCheck_" + myStrWCharge + "_Syst_" + strSystematics + "_" + myStrDirection + "_" + variable + "/";
+    unfCheckDir = "/home/bsutar/t3store2/MuonChargeAsymAnalysis8TeV2012/Results/PNGFiles/Condor/102/UnfoldingCheck_" + myStrWCharge + "_Syst_" + strSystematics + "_" + myStrDirection + "_" + variable + "/";
     string command = "EMPTY"; 
     command = "mkdir -p " + unfCheckDir; 
     
