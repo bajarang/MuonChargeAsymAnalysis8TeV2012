@@ -18,7 +18,6 @@
 #include <sstream>
 #include "TProfile.h"
 #include "LHAPDF/LHAPDF.h"
-
 //#include "muresolution.h"
 #include "rochcor2012wasym_hasan.h"
 #include "functions.h"
@@ -454,7 +453,8 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
     //------------------------------------
     
     std::cout << "We will run on " << nentries << " events" << std::endl;
-
+    std::cout << "Compiled? If this is printed, then yes!" << std::endl; 
+    nEntriesHisto->SetBinContent(1,nentries);
     //--- Begin Loop All Entries --
     for (Long64_t jentry(0); jentry < nentries; jentry++){
     //for (Long64_t jentry(0); jentry < 200; jentry++)        
@@ -463,7 +463,6 @@ void ZJetsAndDPS::Loop(bool hasRecoInfo, bool hasGenInfo, int doQCD, bool doSSig
         if (ientry < 0) break;
         if (jentry % 100000 == 0) std::cout << jentry << std::endl;
         fChain->GetEntry(jentry);
-        nEntriesHisto->Fill(nentries);
         nEvents++;
         int nextBin = 0;
         bool cutNum1TrigPtEta = false, cutNum2Id = false, cutNum3Dxy = false;
@@ -4494,7 +4493,7 @@ ZJetsAndDPS::ZJetsAndDPS(string fileName_, int WCharge_, float lumiScale_, float
         fullFileName =  "../DataTTbarEMu/" + fileName;
     }
     if (fileName.find("Data") != string::npos ) isData = true;
-    if ( fileName.find("SMu_") == 0 || fileName.find("SE_") == 0 ) fullFileName =  "/home/bsutar/t3store2/Asym8TeV/DataW/split_root_files/" + fileName;
+    if ( fileName.find("SMu_") == 0 || fileName.find("SE_") == 0 ) fullFileName =  "/home/bsutar/t3store2/Asym8TeV/DataW/split_root_files_copy2/" + fileName;
     if (fileName.find("Sherpa2") != string::npos) fullFileName =  "../DataSherpa2/" + fileName;
     if (fileName.find("HEJ") != string::npos) fullFileName =  "../DataHEJ/" + fileName;
     
