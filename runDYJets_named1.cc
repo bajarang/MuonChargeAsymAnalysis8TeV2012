@@ -338,5 +338,5 @@ void runDYJets_named1(string strWCharge, string strLineNum,string strDoQCD,strin
   cmd = "if ls " + srcdir + "*_cc.so &> .ls_tmp.list; then rm " + srcdir + "*_cc.so; fi";
   system(cmd.c_str());
   system("rm .ls_tmp.list");
-    
+      
 }
