@@ -16,16 +16,38 @@ void runMergeTop_BVeto(string lepSelection="SMu_", int charge=0, int systematics
 
 //instance
 void MergeTop_BVeto(){
-  ////w+ 
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
-  runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  ////w+
+  // 0 0 
+  ////runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  ////runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  ////runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  ////runMergeTop_BVeto("SMu_",  1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  // 1 -1
+  runMergeTop_BVeto("SMu_",  1, 1, -1, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  runMergeTop_BVeto("SMu_",  1, 1, -1, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu_",  1, 1, -1, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu_",  1, 1, -1, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  // 1 1
+  runMergeTop_BVeto("SMu_",  1, 1, 1, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  runMergeTop_BVeto("SMu_",  1, 1, 1, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu_",  1, 1, 1, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu_",  1, 1, 1, 30, -1, 3, 15, 50, "Merge");  //qcd=3
   ////w-
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0 
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
-  runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  // 0
+  ////runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 0, 15, 50, "Merge");  //qcd=0 
+  ////runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  ////runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  ////runMergeTop_BVeto("SMu_", -1, 0, 0, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  // 1 -1
+  runMergeTop_BVeto("SMu_",  -1, 1, -1, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  runMergeTop_BVeto("SMu_",  -1, 1, -1, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu_",  -1, 1, -1, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu_",  -1, 1, -1, 30, -1, 3, 15, 50, "Merge");  //qcd=3
+  // 1 1
+  runMergeTop_BVeto("SMu_",  -1, 1, 1, 30, -1, 0, 15, 50, "Merge");  //qcd=0
+  runMergeTop_BVeto("SMu_",  -1, 1, 1, 30, -1, 1, 15, 50, "Merge");  //qcd=1
+  runMergeTop_BVeto("SMu_",  -1, 1, 1, 30, -1, 2, 15, 50, "Merge");  //qcd=2
+  runMergeTop_BVeto("SMu_",  -1, 1, 1, 30, -1, 3, 15, 50, "Merge");  //qcd=3
 }
 
 //definition
