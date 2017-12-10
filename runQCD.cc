@@ -1,4 +1,11 @@
 {
+
+/*
+ * This code finds the QCD backgroudnd using data driven technique
+ * Check first if the proper desired parameters are passed
+ * Run with : $ root -b -q runQCD.cc++
+ */
+
     string srcdir = "Sources/";
     vector<string> sources;
     sources.push_back("getFilesAndHistograms");
@@ -17,14 +24,13 @@
     //New 
     // ArgList : 9 arguments - lepFlavor, charge, systematics, direction, jetPtCutMin, doBJets, MET, mT
     //w+
-    ////DataDrivenQCD("SMu",  1, 0, 0, 30, -1, 15, 50, "Merge"); //systematics = 0 
-    ////DataDrivenQCD("SMu",  1, 1,  1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction =  1
-    ////DataDrivenQCD("SMu",  1, 1, -1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction = -1 
+    //DataDrivenQCD("SMu",  1, 0, 0, 30, -1, 15, 50, "Merge"); //systematics = 0 
+    DataDrivenQCD("SMu",  1, 1, -1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction =  1
+    DataDrivenQCD("SMu",  1, 1,  1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction = -1 
     //w-
-    DataDrivenQCD("SMu", -1, 0, 0, 30, -1, 15, 50, "Merge"); //systematics = 0 
-    ////DataDrivenQCD("SMu",  1, 1,  1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction =  1
-    ////DataDrivenQCD("SMu",  1, 1, -1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction = -1 
-   
+    ////DataDrivenQCD("SMu", -1, 0, 0, 30, -1, 15, 50, "Merge"); //systematics = 0 
+    DataDrivenQCD("SMu", -1, 1, -1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction =  1
+    DataDrivenQCD("SMu", -1, 1,  1, 30, -1, 15, 50, "Merge"); //systematics = 1, direction = -1 
 
     //--- clean the *_cc.d and *_cc.so files ---
     string cmd = "if ls *_cc.d &> .ls_tmp.list; then rm *_cc.d; fi";
